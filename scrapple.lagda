@@ -1,4 +1,8 @@
 \begin{code}
+open import Function
+  using (
+    _$_
+  )
 open import Data.List
   using (
     List
@@ -25,5 +29,5 @@ record Scrapple : Set
   where
   field
     bode : Bode
-    roval : All Valsi (cumvla bode)
+    roval : All Valsi $ cumvla bode
 \end{code}
