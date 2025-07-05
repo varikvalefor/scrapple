@@ -22,10 +22,7 @@ Bode = {!!}
 cumvla : Bode → List Strong
 cumvla = {!!}
 
-Valsi : Strong → Set
-Valsi = {!!}
-
-record Scrapple : Set
+record Scrapple (Valsi : Strong → Set) : Set
   where
   field
     bode : Bode
