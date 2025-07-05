@@ -7,6 +7,10 @@ open import Truthbrary.Data.Strong
   using (
     Strong
   )
+open import Data.List.Relation.Unary.All
+  using (
+    All
+  )
 
 Bode : Set
 Bode = {!!}
@@ -14,8 +18,12 @@ Bode = {!!}
 cumvla : Bode → List Strong
 cumvla = {!!}
 
+Valsi : Strong → Set
+Valsi = {!!}
+
 record Scrapple : Set
   where
   field
     bode : Bode
+    roval : All Valsi (cumvla bode)
 \end{code}
