@@ -1,4 +1,4 @@
 \begin{code}
-Scrapple : Set
-Scrapple = {!!}
+record Scrapple : Set
+  where
 \end{code}
