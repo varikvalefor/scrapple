@@ -138,6 +138,7 @@ open import Truthbrary.Data.Strong
     Strong
   )
 open import Truthbrary.Data.Vec.Matrix
+  as 𝕄
   using (
     𝕄
   )
