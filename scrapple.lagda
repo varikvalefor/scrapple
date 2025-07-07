@@ -159,7 +159,7 @@ record Bode : Set
     
 \begin{code}
 cumvla : Bode → List Strong
-cumvla b = Data.List.concat $ Data.List.map f $ (→++↑) $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
+cumvla b = Data.List.concat $ Data.List.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
   where
   𝕍→[𝕊] : {m n : ℕ} → 𝕄 Char m n → List Strong
   𝕍→[𝕊] = 𝕍.toList Function.∘ 𝕍.map 𝕍.toList
