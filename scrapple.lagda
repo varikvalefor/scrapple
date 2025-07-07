@@ -168,11 +168,13 @@ module cumvla where
   f : Strong → List Strong
   f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ 𝕊.words
 
+  →++↑ : {m n : ℕ} → 𝕄 Char m n → List Strong
+  →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
+
 cumvla : Bode → List Strong
 cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
   where
   open cumvla
-  →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
 
 record Scrapple (Valsi : Strong → Set) : Set
