@@ -112,6 +112,7 @@ open import Data.Char
     Char
   )
 open import Data.List
+  as 𝕃
   using (
     List
   )
@@ -159,13 +160,13 @@ record Bode : Set
     
 \begin{code}
 cumvla : Bode → List Strong
-cumvla b = Data.List.concat $ Data.List.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
+cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
   where
   𝕍→[𝕊] : {m n : ℕ} → 𝕄 Char m n → List Strong
   𝕍→[𝕊] = 𝕍.toList Function.∘ 𝕍.map 𝕍.toList
-  →++↑ = λ x → 𝕍→[𝕊] x Data.List.++ 𝕍→[𝕊] (𝕍.transpose x)
+  →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
   f : Strong → List Strong
-  f = Data.List.filter (λ x → Data.List.length x Data.Nat.>? 1) Function.∘ 𝕊.words
+  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) Function.∘ 𝕊.words
 
 record Scrapple (Valsi : Strong → Set) : Set
   where
