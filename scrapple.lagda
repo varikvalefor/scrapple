@@ -165,13 +165,14 @@ module cumvla where
   𝕍→[𝕊] : {m n : ℕ} → 𝕄 Char m n → List Strong
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
+  f : Strong → List Strong
+  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ 𝕊.words
+
 cumvla : Bode → List Strong
 cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
   where
   open cumvla
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
-  f : Strong → List Strong
-  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ 𝕊.words
 
 
 record Scrapple (Valsi : Strong → Set) : Set
