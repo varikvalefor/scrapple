@@ -176,7 +176,6 @@ cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ B
   where
   open cumvla
 
-
 record Scrapple (Valsi : Strong → Set) : Set
   where
   field
