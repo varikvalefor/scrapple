@@ -84,7 +84,7 @@
 \newcommand\Xr[2]{\textrm{#1(#2)}}
 \newcommand\datnyveicme\texttt
 
-\title{la'o zoi.\ \datnyveicme{Truthbrary.Data.Strong}\ .zoi.}
+\title{la'oi zoi.\ \datnyveicme{Scrapple}\ .zoi.}
 \author{la .varik.\ .VALefor.}
 
 \begin{document}
