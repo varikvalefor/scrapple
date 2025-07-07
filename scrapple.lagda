@@ -105,6 +105,7 @@ open import Data.Vec
   )
 open import Function
   using (
+    _∘_;
     _$_
   )
 open import Data.Char
