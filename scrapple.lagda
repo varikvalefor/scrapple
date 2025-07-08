@@ -132,6 +132,10 @@ open import Relation.Unary
   using (
     Decidable
   )
+open import Truthbrary.Record.LLC
+  using (
+    _∈_
+  )
 open import Truthbrary.Data.Strong
   as 𝕊
   using (
@@ -190,6 +194,7 @@ module cumvla where
   module Veritas where
     ropas : (b : Bode)
           → (s : Strong)
+          → 𝕃.length s Data.Nat.> 1
           → (i : Fin $ 𝕍.length $ Bode.sp b)
           → (n₁ n₂ : ℕ)
           → (_≡_
