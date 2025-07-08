@@ -322,6 +322,7 @@ record Scrapple (Valsi : Strong → Set) : Set
   where
   field
     bode : Bode
+    lerste : Strong
     roval : All Valsi $ cumvla bode
 
 record ScrappleGame (V : Strong → Set)
