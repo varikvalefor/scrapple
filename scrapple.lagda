@@ -203,8 +203,8 @@ module cumvla where
     words = sid 𝕃.[] 𝕃.[]
 
     module Veritas where
-      nin : Strong → List $ Maybe Char → Set
-      nin s xs = Pamoi ⊎ Midju ⊎ Romoi
+      vin : Strong → List $ Maybe Char → Set
+      vin s xs = Pamoi ⊎ Midju ⊎ Romoi
         where
         Pamoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.take n xs
         Romoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.drop n xs
@@ -215,14 +215,14 @@ module cumvla where
 
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
-         → nin s xs
+         → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
       ∈w = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-         → nin s xs
+         → vin s xs
       w∈ = {!!}
 
   words = words.words
