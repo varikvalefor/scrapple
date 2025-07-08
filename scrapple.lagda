@@ -166,7 +166,7 @@ module cumvla where
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
   words' : List Strong → Strong → List (Maybe Char) → List Strong
-  words' x b (nothing 𝕃.∷ is) = {!!}
+  words' x b (nothing 𝕃.∷ is) = words' (b 𝕃.∷ x) 𝕃.[] is
   words' x b (just i 𝕃.∷ is) = words' x (i 𝕃.∷ b) is
   words' x b 𝕃.[] = 𝕃.reverse $ 𝕃.reverse b 𝕃.∷ x
 
