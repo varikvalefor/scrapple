@@ -200,7 +200,7 @@ module cumvla where
     sid : ∀ {a} → {A : Set a}
         → List $ List A
         → List A
-        → List (Maybe A)
+        → List $ Maybe A
         → List $ List A
     sid x b (nothing 𝕃.∷ is) = sid (⌽ b 𝕃.∷ x) 𝕃.[] is
     sid x b (just i 𝕃.∷ is) = sid x (i 𝕃.∷ b) is
