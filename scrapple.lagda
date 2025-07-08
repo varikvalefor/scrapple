@@ -157,22 +157,22 @@ record Bode : Set
     h : ℕ
   D = Char × Fin nikelci
   field
-    sp : 𝕄 D w h
+    sp : 𝕄 (Maybe D) w h
 \end{code}
     
 \begin{code}
 module cumvla where
-  𝕍→[𝕊] : {m n : ℕ} → 𝕄 Char m n → List Strong
+  𝕍→[𝕊] : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
-  f : Strong → List Strong
-  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ 𝕊.words
+  f : List (Maybe Char) → List Strong
+  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ {!!}
 
-  →++↑ : {m n : ℕ} → 𝕄 Char m n → List Strong
+  →++↑ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
 cumvla : Bode → List Strong
-cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map proj₁) $ Bode.sp b
+cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (Data.Maybe.map proj₁)) $ Bode.sp b
   where
   open cumvla
 
