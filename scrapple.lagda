@@ -179,10 +179,13 @@ module cumvla where
   →++↑ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
-cumvla : Bode → List Strong
-cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (Data.Maybe.map proj₁)) $ Bode.sp b
-  where
-  open cumvla
+  cumvla : Bode → List Strong
+  cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (Data.Maybe.map proj₁)) $ Bode.sp b
+
+open cumvla
+  using (
+    cumvla
+  )
 
 record Scrapple (Valsi : Strong → Set) : Set
   where
