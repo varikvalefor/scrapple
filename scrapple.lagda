@@ -214,9 +214,7 @@ module cumvla where
          → (Data.Product.Σ
              (ℕ × ℕ)
              (λ (n₁ Data.Product., n₂) →
-               (_≡_
-                 (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
-                 (𝕃.take n₂ $ 𝕃.drop n₁ xs))))
+               (nin s xs n₁ n₂)))
       w∈ = {!!}
 
   words = words.words
