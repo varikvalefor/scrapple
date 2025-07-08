@@ -97,6 +97,7 @@ open import Data.Fin
     Fin
   )
 open import Data.Nat
+  as ℕ
   using (
     ℕ
   )
@@ -191,7 +192,7 @@ module cumvla where
   words = words' 𝕃.[] 𝕃.[]
 
   f : List (Maybe Char) → List Strong
-  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ words
+  f = 𝕃.filter (λ x → 𝕃.length x ℕ.>? 1) ∘ words
 
   →++↑ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
@@ -202,7 +203,7 @@ module cumvla where
   module Veritas where
     ropas : (b : Bode)
           → (s : Strong)
-          → 𝕃.length s Data.Nat.> 1
+          → 𝕃.length s ℕ.> 1
           → (i : Fin $ 𝕍.length $ Bode.sp b)
           → (n₁ n₂ : ℕ)
           → (_≡_
