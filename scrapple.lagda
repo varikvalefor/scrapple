@@ -282,5 +282,21 @@ record Scrapple (Valsi : Strong → Set) : Set
   field
     bode : Bode
     roval : All Valsi $ cumvla bode
+
+record ScrappleGame (V : Strong → Set)
+                    (V? : Decidable V) : Set
+  where
+  field
+    scrapple : Scrapple V
+
+  open Scrapple scrapple
+  open Bode (Scrapple.bode scrapple)
+
+  jmina : Fin w
+        → Fin h
+        → Fin nikelci
+        → Fin 2
+        → ScrappleGame V V? ⊎ (Set Function.∋ {!!})
+  jmina = {!!}
 \end{code}
 \end{document}
