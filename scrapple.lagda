@@ -195,7 +195,7 @@ module cumvla where
   f = 𝕃.filter (λ x → 𝕃.length x ℕ.>? 1) ∘ words
 
   →++↑ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
-  →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
+  →++↑ x = 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
   cumvla : Bode → List Strong
   cumvla = 𝕃.concat ∘ 𝕃.map f ∘ →++↑ ∘ Bode.sp₁
