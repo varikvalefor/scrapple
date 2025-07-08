@@ -120,6 +120,9 @@ open import Data.List
   using (
     List
   )
+  renaming (
+    reverse to ⌽
+  )
 open import Data.Maybe
   as ??
   using (
@@ -185,9 +188,9 @@ module cumvla where
 
   module words where
     sid : List Strong → Strong → List (Maybe Char) → List Strong
-    sid x b (nothing 𝕃.∷ is) = sid (𝕃.reverse b 𝕃.∷ x) 𝕃.[] is
+    sid x b (nothing 𝕃.∷ is) = sid (⌽ b 𝕃.∷ x) 𝕃.[] is
     sid x b (just i 𝕃.∷ is) = sid x (i 𝕃.∷ b) is
-    sid x b 𝕃.[] = 𝕃.reverse $ 𝕃.reverse b 𝕃.∷ x
+    sid x b 𝕃.[] = ⌽ $ ⌽ b 𝕃.∷ x
 
     words : List $ Maybe Char → List Strong
     words = sid 𝕃.[] 𝕃.[]
