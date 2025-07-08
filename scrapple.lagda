@@ -101,6 +101,11 @@ open import Data.Nat
   using (
     ℕ
   )
+open import Data.Sum
+  as _⊎_
+  using (
+    _⊎_
+  )
 open import Data.Vec
   as 𝕍
   using (
@@ -199,9 +204,10 @@ module cumvla where
 
     module Veritas where
       nin : Strong → List $ Maybe Char → Set
-      nin s xs = Midju
+      nin s xs = Midju ⊎ Romoi
         where
         k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
+        Romoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.drop n xs
         Midju = Σ (ℕ × ℕ) $ λ (n₁ , n₂) → k ≡ 𝕃.take n₂ (𝕃.drop n₁ xs)
 
       ∈w : (xs : List $ Maybe Char)
