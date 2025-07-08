@@ -168,7 +168,7 @@ module cumvla where
   words' : List Strong → Strong → List (Maybe Char) → List Strong
   words' x b (nothing 𝕃.∷ is) = {!!}
   words' x b (just i 𝕃.∷ is) = {!!}
-  words' x b 𝕃.[] = {!!}
+  words' x b 𝕃.[] = 𝕃.reverse $ b 𝕃.∷ x
 
   words : List (Maybe Char) → List Strong
   words = words' 𝕃.[] 𝕃.[]
