@@ -196,7 +196,7 @@ module cumvla where
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
   cumvla : Bode → List Strong
-  cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ Bode.sp₁ b
+  cumvla = 𝕃.concat ∘ 𝕃.map f ∘ →++↑ ∘ Bode.sp₁
 
   module Veritas where
     ropas : (b : Bode)
