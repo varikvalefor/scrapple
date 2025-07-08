@@ -120,6 +120,7 @@ open import Data.List
     List
   )
 open import Data.Maybe
+  as ??
   using (
     nothing;
     Maybe;
@@ -191,7 +192,7 @@ module cumvla where
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
   cumvla : Bode → List Strong
-  cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (Data.Maybe.map proj₁)) $ Bode.sp b
+  cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (??.map proj₁)) $ Bode.sp b
 
   module Veritas where
     ropas : (b : Bode)
@@ -202,7 +203,7 @@ module cumvla where
           → (_≡_
               (𝕃.map just s)
               ((𝕃.take n₂ ∘ 𝕃.drop n₁)
-                ((𝕃.map $ Data.Maybe.map proj₁)
+                ((𝕃.map $ ??.map proj₁)
                   (𝕍.toList $ 𝕍.lookup (Bode.sp b) i))))
           → Data.Product.∃ $ λ n → 𝕃.lookup (cumvla b) n ≡ s
     ropas = {!!}
