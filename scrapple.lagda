@@ -182,7 +182,7 @@ module cumvla where
   words' x b (just i 𝕃.∷ is) = words' x (i 𝕃.∷ b) is
   words' x b 𝕃.[] = 𝕃.reverse $ 𝕃.reverse b 𝕃.∷ x
 
-  words : List (Maybe Char) → List Strong
+  words : List $ Maybe Char → List Strong
   words = words' 𝕃.[] 𝕃.[]
 
   f : List (Maybe Char) → List Strong
