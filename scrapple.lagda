@@ -146,6 +146,11 @@ open import Data.List.Relation.Unary.All
   using (
     All
   )
+open import Relation.Binary.PropositionalEquality
+  as _≡_
+  using (
+    _≡_
+  )
 \end{code}
 
 \begin{code}
@@ -181,6 +186,19 @@ module cumvla where
 
   cumvla : Bode → List Strong
   cumvla b = 𝕃.concat $ 𝕃.map f $ →++↑ $ 𝕍.map (𝕍.map (Data.Maybe.map proj₁)) $ Bode.sp b
+
+  module Veritas where
+    ropas : (b : Bode)
+          → (s : Strong)
+          → (i : Fin $ 𝕍.length $ Bode.sp b)
+          → (n₁ n₂ : ℕ)
+          → (_≡_
+              (𝕃.map just s)
+              ((𝕃.take n₂ ∘ 𝕃.drop n₁)
+                ((𝕃.map $ Data.Maybe.map proj₁)
+                  (𝕍.toList $ 𝕍.lookup (Bode.sp b) i))))
+          → Data.Product.∃ $ λ n → 𝕃.lookup (cumvla b) n ≡ s
+    ropas = {!!}
 
 open cumvla
   using (
