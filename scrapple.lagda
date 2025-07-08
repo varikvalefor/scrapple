@@ -300,6 +300,34 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → rd wd hd
   rd = λ wd hd → ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ wd) (mink f₂ hd))
 
 module jmina where
+  jmina! : (b : Bode)
+         → Fin $ Bode.w b
+         → Fin $ Bode.h b
+         → Fin $ Bode.nikelci b
+         → Fin 2
+         → Bode
+  jmina! = {!!}
+
+  jminan : (b : Bode)
+         → (w : Fin $ Bode.w b)
+         → (h : Fin $ Bode.h b)
+         → (k : Fin $ Bode.nikelci b)
+         → (d : Fin 2)
+         → (s : Strong)
+         → (_ : d ≡ Fin.zero
+              → (_×_
+                  (ℕ._<_
+                    (Data.Fin.toℕ w ℕ.+ 𝕃.length s)
+                    (Bode.w b))
+                  (All
+                    (??.Is-nothing {A = Char × Fin (Bode.nikelci b)})
+                    (𝕃.take
+                      (𝕃.length s)
+                      (𝕃.drop (Data.Fin.toℕ w) {!!})))))
+         → Set Function.∋ {!!}
+         → Bode
+  jminan = {!!}
+
   jmina : (b : Bode)
         → Fin $ Bode.w b
         → Fin $ Bode.h b
@@ -317,6 +345,12 @@ module jmina where
                  (J : ??.Is-just $ jmina b w h k d) where
       wd : Bode.w b ≡ Bode.w (??.to-witness J)
       wd = {!!}
+
+      hd : Bode.h b ≡ Bode.h (??.to-witness J)
+      hd = {!!}
+
+      kd : Bode.nikelci b ≡ Bode.nikelci (??.to-witness J)
+      kd = {!!}
 
 record Scrapple (Valsi : Strong → Set) : Set
   where
