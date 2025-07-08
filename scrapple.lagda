@@ -197,7 +197,11 @@ module cumvla where
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
   module words where
-    sid : List Strong → Strong → List (Maybe Char) → List Strong
+    sid : ∀ {a} → {A : Set a}
+        → List $ List A
+        → List A
+        → List (Maybe A)
+        → List $ List A
     sid x b (nothing 𝕃.∷ is) = sid (⌽ b 𝕃.∷ x) 𝕃.[] is
     sid x b (just i 𝕃.∷ is) = sid x (i 𝕃.∷ b) is
     sid x b 𝕃.[] = ⌽ $ ⌽ b 𝕃.∷ x
