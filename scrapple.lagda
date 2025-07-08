@@ -208,7 +208,7 @@ module cumvla where
               (𝕃.map just s)
               ((𝕃.take n₂ ∘ 𝕃.drop n₁)
                 (𝕍.toList $ 𝕍.lookup (Bode.sp₁ b) i)))
-          → Data.Product.∃ $ λ n → s ≡ 𝕃.lookup (cumvla b) n
+          → Data.Product.∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
     ropas = {!!}
 
 open cumvla
