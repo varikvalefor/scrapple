@@ -170,7 +170,11 @@ record Bode : Set
   D = Char × Fin nikelci
   field
     sp : 𝕄 (Maybe D) w h
+  sp₁ = 𝕍.map (𝕍.map $ ??.map proj₁) sp
 \end{code}
+
+\section{la .\F{cumvla}.}
+ni'o ro da zo'u ro de zo'u ga jo da cmima lo me'oi .\F{cumvla}.\ be de gi ga je da co'e ja pagbu pe'a lo me'oi .board.\ gi ga naje .indika gi cumki fa lo nu da valsi
     
 \begin{code}
 module cumvla where
