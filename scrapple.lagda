@@ -277,6 +277,15 @@ open cumvla
     cumvla
   )
 
+module jmina where
+  jmina : (b : Bode)
+        → Fin $ Bode.w b
+        → Fin $ Bode.h b
+        → Fin $ Bode.nikelci b
+        → Fin 2
+        → Maybe Bode
+  jmina = {!!}
+
 record Scrapple (Valsi : Strong → Set) : Set
   where
   field
