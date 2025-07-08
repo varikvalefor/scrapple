@@ -283,7 +283,7 @@ open cumvla
 
 prane-zmadu : (b₁ b₂ : Bode)
             → Set
-prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ wd) (mink f₂ hd))
+prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → rd wd hd
   where
   sp₁ = Bode.sp₁ b₁
   sp₂ = Bode.sp₁ b₂
@@ -298,6 +298,7 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → ((f₁ : _) → (f₂ : _) 
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
     hd = Bode.h b₁ ≡ Bode.h b₂ 
+  rd = λ wd hd → ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ wd) (mink f₂ hd))
 
 module jmina where
   jmina : (b : Bode)
