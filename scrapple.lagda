@@ -309,8 +309,8 @@ module jmina where
   jmina! b w h k Fin.zero = record {
     nikelci = Bode.nikelci b;
     w = Bode.w b;
-    h = Bode.h b;
-    sp = {!!} $ 𝕍.take (Data.Fin.toℕ w) ({!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) ({!!} $ Bode.sp b)
+    h = {!!};
+    sp = 𝕍.take (Data.Fin.toℕ w) ({!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) ({!!} $ Bode.sp b)
     }
   jmina! b w h k (Fin.suc Fin.zero) = {!!}
 
