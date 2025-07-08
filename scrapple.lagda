@@ -206,11 +206,11 @@ module cumvla where
       nin : Strong → List $ Maybe Char → Set
       nin s xs = Pamoi ⊎ Midju ⊎ Romoi
         where
-        k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
         Pamoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.take n xs
         Romoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.drop n xs
         Midju = Σ (ℕ × ℕ) $ λ (n₁ , n₂) → k ≡ midju n₁ n₂ xs
           where
+          k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
           midju = λ n₁ n₂ → 𝕃.take n₂ ∘ 𝕃.drop n₁
 
       ∈w : (xs : List $ Maybe Char)
