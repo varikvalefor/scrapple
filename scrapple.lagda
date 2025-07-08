@@ -310,7 +310,7 @@ module jmina where
     nikelci = {!!};
     w = {!!};
     h = {!!};
-    sp = {!!}
+    sp = 𝕍.take (Data.Fin.toℕ w) ({!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) ({!!} $ Bode.sp b)
     }
   jmina! b w h k (Fin.suc Fin.zero) = {!!}
 
