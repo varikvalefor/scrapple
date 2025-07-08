@@ -286,6 +286,16 @@ module jmina where
         → Maybe Bode
   jmina = {!!}
 
+  module Veritas where
+    module dunli (b : Bode)
+                 (w : _)
+                 (h : _)
+                 (k : _)
+                 (d : _)
+                 (J : ??.Is-just $ jmina b w h k d) where
+      wd : Bode.w b ≡ Bode.w (??.to-witness J)
+      wd = {!!}
+
 record Scrapple (Valsi : Strong → Set) : Set
   where
   field
