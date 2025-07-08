@@ -129,7 +129,8 @@ open import Data.Maybe
 open import Data.Product
   using (
     proj₁;
-    _×_
+    _×_;
+    ∃
   )
 open import Relation.Unary
   using (
@@ -208,7 +209,7 @@ module cumvla where
               (𝕃.map just s)
               ((𝕃.take n₂ ∘ 𝕃.drop n₁)
                 (𝕍.toList $ 𝕍.lookup (Bode.sp₁ b) i)))
-          → Data.Product.∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
+          → ∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
     ropas = {!!}
 
 open cumvla
