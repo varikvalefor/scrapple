@@ -190,9 +190,10 @@ ni'o ro da zo'u ro de zo'u ga jo da cmima lo me'oi .\F{cumvla}.\ be de gi ga je 
     
 \begin{code}
 module cumvla where
-  𝕍→[𝕊] : {m n : ℕ}
-        → 𝕄 (Maybe Char) m n
-        → List $ List $ Maybe Char
+  𝕍→[𝕊] : ∀ {a} → {A : Set a}
+        → {m n : ℕ}
+        → 𝕄 (Maybe A) m n
+        → List $ List $ Maybe A
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
   module words where
