@@ -196,25 +196,21 @@ module cumvla where
     words = sid 𝕃.[] 𝕃.[]
 
     module Veritas where
-      nin : Strong → List $ Maybe Char → ℕ → ℕ → Set
-      nin s xs n₁ n₂ = k ≡ 𝕃.take n₂ (𝕃.drop n₁ xs)
+      nin : Strong → List $ Maybe Char → Set
+      nin s xs = Data.Product.Σ (ℕ × ℕ) $ λ (n₁ Data.Product., n₂) → k ≡ 𝕃.take n₂ (𝕃.drop n₁ xs)
         where
         k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
 
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
-         → (n₁ n₂ : ℕ)
-         → nin s xs n₁ n₂
+         → nin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
       ∈w = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-         → (Data.Product.Σ
-             (ℕ × ℕ)
-             (λ (n₁ Data.Product., n₂) →
-               (nin s xs n₁ n₂)))
+         → nin s xs
       w∈ = {!!}
 
   words = words.words
