@@ -306,7 +306,8 @@ module jmina where
          → Fin $ Bode.nikelci b
          → Fin 2
          → Bode
-  jmina! = {!!}
+  jmina! b w h k Fin.zero = {!!}
+  jmina! b w h k (Fin.suc Fin.zero) = {!!}
 
   jminan : (b : Bode)
          → (w : Fin $ Bode.w b)
