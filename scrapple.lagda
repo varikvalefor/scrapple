@@ -134,6 +134,7 @@ open import Data.Product
   using (
     proj₁;
     _×_;
+    _,_;
     Σ;
     ∃
   )
@@ -198,7 +199,7 @@ module cumvla where
 
     module Veritas where
       nin : Strong → List $ Maybe Char → Set
-      nin s xs = Σ (ℕ × ℕ) $ λ (n₁ Data.Product., n₂) → k ≡ 𝕃.take n₂ (𝕃.drop n₁ xs)
+      nin s xs = Σ (ℕ × ℕ) $ λ (n₁ , n₂) → k ≡ 𝕃.take n₂ (𝕃.drop n₁ xs)
         where
         k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
 
