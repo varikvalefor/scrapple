@@ -151,6 +151,10 @@ open import Relation.Nullary
   using (
     ¬_
   )
+open import Truthbrary.Data.Fin
+  using (
+    mink
+  )
 open import Truthbrary.Record.LLC
   using (
     _∈_
@@ -279,8 +283,17 @@ open cumvla
 
 prane-zmadu : (b₁ b₂ : Bode)
             → Set
-prane-zmadu b₁ b₂ = M × {!!}
+prane-zmadu b₁ b₂ = M × ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ {!!}) (mink f₂ {!!}))
   where
+  sp₁ = Bode.sp₁ b₁
+  sp₂ = Bode.sp₁ b₂
+  lookup₂ : ∀ {a} → {A : Set a}
+          → {m n : ℕ}
+          → 𝕄 A m n
+          → Fin m
+          → Fin n
+          → A
+  lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
   M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
