@@ -278,11 +278,13 @@ open cumvla
   )
 
 prane-zmadu : (b₁ b₂ : Bode)
-            → Bode.w b₁ ≡ Bode.w b₂
-            → Bode.h b₁ ≡ Bode.h b₂
-            → Bode.nikelci b₁ ≡ Bode.nikelci b₂
             → Set
-prane-zmadu = {!!}
+prane-zmadu b₁ b₂ = M × {!!}
+  where
+  M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
+    where
+    wd = Bode.w b₁ ≡ Bode.w b₂
+    hd = Bode.h b₁ ≡ Bode.h b₂ 
 
 module jmina where
   jmina : (b : Bode)
