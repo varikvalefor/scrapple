@@ -165,8 +165,11 @@ module cumvla where
   𝕍→[𝕊] : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
+  words : List (Maybe Char) → List Strong
+  words = {!!}
+
   f : List (Maybe Char) → List Strong
-  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ {!!}
+  f = 𝕃.filter (λ x → 𝕃.length x Data.Nat.>? 1) ∘ words
 
   →++↑ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↑ = λ x → 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
