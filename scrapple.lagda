@@ -206,7 +206,7 @@ module cumvla where
     sid x b (just i 𝕃.∷ is) = sid x (i 𝕃.∷ b) is
     sid x b 𝕃.[] = ⌽ $ ⌽ b 𝕃.∷ x
 
-    words : List $ Maybe Char → List Strong
+    words : ∀ {a} → {A : Set a} → List $ Maybe A → List $ List A
     words = sid 𝕃.[] 𝕃.[]
 
     module Veritas where
