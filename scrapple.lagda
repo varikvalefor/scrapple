@@ -206,10 +206,9 @@ module cumvla where
 
     module Veritas where
       vin : Strong → List $ Maybe Char → Set
-      vin s xs = Pamoi ⊎ Midju ⊎ Romoi
+      vin s xs = M 𝕃.take ⊎ Midju ⊎ M 𝕃.drop
         where
-        Pamoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.take n xs
-        Romoi = Σ ℕ $ λ n → 𝕃.map just s ≡ 𝕃.drop n xs
+        M = λ f → Σ ℕ $ λ n → 𝕃.map just s ≡ f n xs
         Midju = Σ (ℕ × ℕ) $ λ (n₁ , n₂) → k ≡ midju n₁ n₂ xs
           where
           k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
