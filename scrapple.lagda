@@ -251,7 +251,7 @@ module cumvla where
   words = words.words
 
   f : List $ Maybe Char → List Strong
-  f = 𝕃.filter (λ x → 𝕃.length x ℕ.>? 1) ∘ words
+  f = 𝕃.filter (ℕ._>?_ 1 ∘ 𝕃.length) ∘ words
 
   →++↓ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↓ x = 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
