@@ -283,7 +283,7 @@ open cumvla
 
 prane-zmadu : (b₁ b₂ : Bode)
             → Set
-prane-zmadu b₁ b₂ = M × ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ {!!}) (mink f₂ {!!}))
+prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ wd) (mink f₂ hd))
   where
   sp₁ = Bode.sp₁ b₁
   sp₂ = Bode.sp₁ b₂
