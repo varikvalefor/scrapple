@@ -207,8 +207,7 @@ module cumvla where
           → (_≡_
               (𝕃.map just s)
               ((𝕃.take n₂ ∘ 𝕃.drop n₁)
-                ((𝕃.map $ ??.map proj₁)
-                  (𝕍.toList $ 𝕍.lookup (Bode.sp b) i))))
+                (𝕍.toList $ 𝕍.lookup (Bode.sp₁ b) i)))
           → Data.Product.∃ $ λ n → 𝕃.lookup (cumvla b) n ≡ s
     ropas = {!!}
 
