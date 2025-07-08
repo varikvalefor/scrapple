@@ -14,6 +14,7 @@
 \newunicodechar{∷}{\ensuremath{\mathnormal\Colon}}
 \newunicodechar{𝔽}{\ensuremath{\mathnormal{\mathbb F}}}
 \newunicodechar{𝕃}{\ensuremath{\mathnormal{\mathbb L}}}
+\newunicodechar{𝕄}{\ensuremath{\mathnormal{\mathbb 𝕄}}}
 \newunicodechar{ℕ}{\ensuremath{\mathnormal{\mathbb N}}}
 \newunicodechar{𝕊}{\ensuremath{\mathnormal{\mathbb S}}}
 \newunicodechar{𝕍}{\ensuremath{\mathnormal{\mathbb V}}}
