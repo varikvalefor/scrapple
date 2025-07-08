@@ -195,6 +195,16 @@ module cumvla where
     words : List $ Maybe Char → List Strong
     words = sid 𝕃.[] 𝕃.[]
 
+    module Veritas where
+      ∈w : (xs : List $ Maybe Char)
+         → (s : Strong)
+         → (n₁ n₂ : ℕ)
+         → (_≡_
+             (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
+             (𝕃.take n₂ $ 𝕃.drop n₁ xs))
+         → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
+      ∈w = {!!}
+
   words = words.words
 
   f : List $ Maybe Char → List Strong
