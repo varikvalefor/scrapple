@@ -183,13 +183,16 @@ module cumvla where
   𝕍→[𝕊] : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   𝕍→[𝕊] = 𝕍.toList ∘ 𝕍.map 𝕍.toList
 
-  words' : List Strong → Strong → List (Maybe Char) → List Strong
-  words' x b (nothing 𝕃.∷ is) = words' (𝕃.reverse b 𝕃.∷ x) 𝕃.[] is
-  words' x b (just i 𝕃.∷ is) = words' x (i 𝕃.∷ b) is
-  words' x b 𝕃.[] = 𝕃.reverse $ 𝕃.reverse b 𝕃.∷ x
+  module words where
+    words' : List Strong → Strong → List (Maybe Char) → List Strong
+    words' x b (nothing 𝕃.∷ is) = words' (𝕃.reverse b 𝕃.∷ x) 𝕃.[] is
+    words' x b (just i 𝕃.∷ is) = words' x (i 𝕃.∷ b) is
+    words' x b 𝕃.[] = 𝕃.reverse $ 𝕃.reverse b 𝕃.∷ x
 
-  words : List $ Maybe Char → List Strong
-  words = words' 𝕃.[] 𝕃.[]
+    words : List $ Maybe Char → List Strong
+    words = words' 𝕃.[] 𝕃.[]
+
+  words = words.words
 
   f : List $ Maybe Char → List Strong
   f = 𝕃.filter (λ x → 𝕃.length x ℕ.>? 1) ∘ words
