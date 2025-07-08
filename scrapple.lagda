@@ -281,7 +281,7 @@ open cumvla
     cumvla
   )
 
-prane-zmadu : (b₁ b₂ : Bode) → Set
+prane-zmadu : (b₁ _ : Bode) → Set
 prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → rd wd hd
   where
   sp₁ = Bode.sp₁ b₁
