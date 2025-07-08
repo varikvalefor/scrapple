@@ -205,6 +205,17 @@ module cumvla where
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
       ∈w = {!!}
 
+      w∈ : (xs : List $ Maybe Char)
+         → (s : Strong)
+         → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
+         → (Data.Product.Σ
+             (ℕ × ℕ)
+             (λ (n₁ Data.Product., n₂) →
+               (_≡_
+                 (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
+                 (𝕃.take n₂ $ 𝕃.drop n₁ xs))))
+      w∈ = {!!}
+
   words = words.words
 
   f : List $ Maybe Char → List Strong
