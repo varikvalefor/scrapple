@@ -147,6 +147,10 @@ open import Relation.Unary
   using (
     Decidable
   )
+open import Relation.Nullary
+  using (
+    ¬_
+  )
 open import Truthbrary.Record.LLC
   using (
     _∈_
@@ -230,6 +234,19 @@ module cumvla where
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
          → vin s xs
       w∈ = {!!}
+
+      xrt : ∀ {a} → {A : Set a}
+          → (xs : List $ Maybe A)
+          → (_ : (n₁ n₂ : ℕ)
+               → (¬_
+                   (_≡_
+                     (𝕃.replicate 2 nothing)
+                     (𝕃.take n₂ $ 𝕃.drop n₁ xs))))
+          → (_≡_
+              xs
+              ((𝕃.concat ∘ 𝕃.intersperse 𝕃.[ nothing ])
+                (𝕃.map (𝕃.map just) $ words xs)))
+      xrt = {!!}
 
   words = words.words
 
