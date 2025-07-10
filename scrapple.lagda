@@ -379,6 +379,7 @@ record ScrappleGame (V : Strong → Set)
         → Fin h
         → Fin nikelci
         → Fin 2
+        → Strong
         → ScrappleGame V V? ⊎ (Set Function.∋ {!!})
   jmina = {!!}
 \end{code}
