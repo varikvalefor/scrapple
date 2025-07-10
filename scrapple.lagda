@@ -382,5 +382,14 @@ record ScrappleGame (V : Strong → Set)
         → Strong
         → ScrappleGame V V? ⊎ (Set Function.∋ {!!})
   jmina = {!!}
+
+  jmina-fliba-¬V : (w : Fin w)
+                 → (h : Fin h)
+                 → (k : Fin nikelci)
+                 → (d : Fin 2)
+                 → (s : Strong)
+                 → ¬ V s
+                 → ∃ $ λ x → jmina w h k d s ≡ _⊎_.inj₂ x
+  jmina-fliba-¬V = {!!}
 \end{code}
 \end{document}
