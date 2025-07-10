@@ -231,7 +231,8 @@ module cumvla where
          → (s : Strong)
          → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-      ∈w = {!!}
+      ∈w xs s (_⊎_.inj₁ v) = {!!}
+      ∈w xs s (_⊎_.inj₂ v) = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
