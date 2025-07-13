@@ -227,6 +227,10 @@ module cumvla where
           k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
           midju = λ n₁ n₂ → 𝕃.take n₂ ∘ 𝕃.drop n₁
 
+      kunti :  ∀ {a} → {A : Set a}
+            → words {A = A} 𝕃.[] ≡ 𝕃.[]
+      kunti = {!!}
+
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
          → vin s xs
