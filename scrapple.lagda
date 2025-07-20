@@ -215,7 +215,7 @@ module cumvla where
     sid x b 𝕃.[] = ⌽ $ ⌽ b 𝕃.∷ x
 
     words : ∀ {a} → {A : Set a} → List $ Maybe A → List $ List A
-    words = sid 𝕃.[] 𝕃.[]
+    words = 𝕃.filter (λ x → 0 ℕ.<? 𝕃.length x) ∘ sid 𝕃.[] 𝕃.[]
 
     module Veritas where
       vin : Strong → List $ Maybe Char → Set
