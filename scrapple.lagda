@@ -351,8 +351,11 @@ module jmina where
     nikelci = Bode.nikelci b;
     w = Bode.w b;
     h = {!!};
-    sp = 𝕍.take (Data.Fin.toℕ w) ({!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) ({!!} $ Bode.sp b)
+    sp = 𝕍.take (Data.Fin.toℕ w) (coerce {!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) (coerce {!!} $ Bode.sp b)
     }
+    where
+    coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+    coerce _≡_.refl x = x
   jmina! b w h k (Fin.suc Fin.zero) = {!!}
 
   jminan : (b : Bode)
