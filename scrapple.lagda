@@ -395,7 +395,7 @@ record ScrappleGame (V : Strong → Set)
                  → (d : Fin 2)
                  → (s : Strong)
                  → ¬ V s
-                 → ∃ $ λ x → jmina w h k d s ≡ _⊎_.inj₂ x
+                 → ∃ $ λ x → jmina w h k d s ≡ inj₂ x
   jmina-fliba-¬V = {!!}
 \end{code}
 \end{document}
