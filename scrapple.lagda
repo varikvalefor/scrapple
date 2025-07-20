@@ -104,6 +104,7 @@ open import Data.Nat
 open import Data.Sum
   as _⊎_
   using (
+    inj₂;
     _⊎_
   )
 open import Data.Vec
@@ -236,7 +237,7 @@ module cumvla where
          → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
       ∈w xs s (_⊎_.inj₁ v) = {!!}
-      ∈w xs s (_⊎_.inj₂ v) = {!!}
+      ∈w xs s (inj₂ v) = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
