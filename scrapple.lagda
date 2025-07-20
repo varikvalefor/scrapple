@@ -92,6 +92,10 @@
 \begin{document}
 \maketitle
 \begin{code}
+open import Level
+  using (
+    _⊔_
+  )
 open import Data.Fin
   using (
     Fin
@@ -147,6 +151,12 @@ open import Data.Product
 open import Relation.Unary
   using (
     Decidable
+  )
+open import Relation.Binary
+  using (
+  )
+  renaming (
+    Decidable to Decidable₂
   )
 open import Relation.Nullary
   using (
@@ -289,10 +299,10 @@ open cumvla
   )
 
 prane-zmadu : Bode → Bode → Set
-prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → rd wd hd
+prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
   where
-  sp₁ = Bode.sp₁ b₁
-  sp₂ = Bode.sp₁ b₂
+  coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
+  coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
   lookup₂ : ∀ {a} → {A : Set a}
           → {m n : ℕ}
           → 𝕄 A m n
@@ -300,11 +310,32 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → rd wd hd
           → Fin n
           → A
   lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
+  sp₁ = Bode.sp₁ b₁
+  sp₂ = Bode.sp₁ b₂
+  Mapti : Bode.w b₁ ≡ Bode.w b₂
+        → Bode.h b₁ ≡ Bode.h b₂
+        → Fin (Bode.w b₁) × Fin (Bode.h b₁)
+        → Set
+  Mapti wd hd (i₁ , i₂) = ??.Is-just (lookup₂ sp₁ i₁ i₂) ⇒_ $ lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
+    where
+    _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+    _⇒_ X Z = Z ⊎ (¬ X)
+    _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
+         → {A? : Relation.Nullary.Dec A}
+         → {B? : Relation.Nullary.Dec B}
+         → Relation.Nullary.Dec $ A ⇒ B
+    _⇒?_ = {!!}
   M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
     hd = Bode.h b₁ ≡ Bode.h b₂ 
-  rd = λ wd hd → ((f₁ : _) → (f₂ : _) → ??.Is-just (lookup₂ sp₁ f₁ f₂) → lookup₂ sp₁ f₁ f₂ ≡ lookup₂ sp₂ (mink f₁ wd) (mink f₂ hd))
+  rd = λ wd hd
+     → (    (f₁ : _)
+          → (f₂ : _)
+          → ??.Is-just (lookup₂ sp₁ f₁ f₂)
+          → (_≡_
+              (lookup₂ sp₁ f₁ f₂)
+              (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
 
 module jmina where
   jmina! : (b : Bode)
