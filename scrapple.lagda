@@ -243,7 +243,8 @@ module cumvla where
          → (s : Strong)
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
          → vin s xs
-      w∈ = {!!}
+      w∈ 𝕃.[] s (f , d) = {!!} -- .i narcu'i
+      w∈ (x 𝕃.∷ xs) s (f , d) = {!!}
 
       xrt : ∀ {a} → {A : Set a}
           → (xs : List $ Maybe A)
