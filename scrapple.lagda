@@ -337,6 +337,9 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
               (lookup₂ sp₁ f₁ f₂)
               (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
 
+prane-zmadu? : Decidable₂ prane-zmadu
+prane-zmadu? = {!!}
+
 module jmina where
   jmina! : (b : Bode)
          → Fin $ Bode.w b
