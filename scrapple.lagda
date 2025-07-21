@@ -240,7 +240,7 @@ module cumvla where
 
       kunti :  ∀ {a} → {A : Set a}
             → words {A = A} 𝕃.[] ≡ 𝕃.[]
-      kunti = {!!}
+      kunti = _≡_.refl
 
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
