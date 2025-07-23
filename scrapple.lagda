@@ -337,7 +337,11 @@ open cumvla
   using (
     cumvla
   )
+\end{code}
 
+\section{le me'oi .iteration.\ se ctaipe}
+
+\begin{code}
 prane-zmadu : Bode → Bode → Set
 prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
   where
