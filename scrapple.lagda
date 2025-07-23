@@ -365,9 +365,9 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
          → {A? : Dec A}
          → {B? : Dec B}
          → Dec $ A ⇒ B
-    _⇒?_ A _ {B? = yes b} = yes $ _⊎_.inj₁ b
-    _⇒?_ A _ {yes cₐ} {no N} = no {!!}
-    _⇒?_ A _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
+    _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
+    _⇒?_ _ _ {yes cₐ} {no N} = no {!!}
+    _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
   M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
