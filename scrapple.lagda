@@ -257,10 +257,11 @@ module cumvla where
 
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
+         → ¬_ $ s ≡ 𝕃.[]
          → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-      ∈w xs s (_⊎_.inj₁ v) = {!!}
-      ∈w xs s (inj₂ v) = {!!}
+      ∈w xs s z (_⊎_.inj₁ v) = {!!}
+      ∈w xs s z (inj₂ v) = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
