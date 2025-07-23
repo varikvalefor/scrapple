@@ -419,7 +419,7 @@ module jmina where
                       {A = Char × Fin (Bode.nikelci b)})
                     (𝕃.take
                       (𝕃.length s)
-                      (𝕃.drop (Data.Fin.toℕ w) {!!})))))
+                      (𝕃.drop (Data.Fin.toℕ w) $ 𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))))
          → Set Function.∋ {!!}
          → Bode
   jminan = {!!}
