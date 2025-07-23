@@ -165,6 +165,7 @@ open import Relation.Binary
   )
 open import Relation.Nullary
   using (
+    Dec;
     yes;
     ¬_;
     no
@@ -360,9 +361,9 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
     _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
     _⇒_ X Z = Z ⊎ (¬ X)
     _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
-         → {A? : Relation.Nullary.Dec A}
-         → {B? : Relation.Nullary.Dec B}
-         → Relation.Nullary.Dec $ A ⇒ B
+         → {A? : Dec A}
+         → {B? : Dec B}
+         → Dec $ A ⇒ B
     _⇒?_ A B {A?} {yes b} = yes $ _⊎_.inj₁ b
     _⇒?_ A B {yes cₐ} {no N} = no {!!}
     _⇒?_ A B {no Nₐ} {no N} = yes $ inj₂ Nₐ
