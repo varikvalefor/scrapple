@@ -248,7 +248,7 @@ module cumvla where
             → (l : List $ Maybe Char)
             → ¬_ $ v ≡ 𝕃.[]
             → vin v l
-            → ∃ $ λ n → 𝕃.length l ≡ ℕ.suc n
+            → ∃ $ λ n → 𝕃.length (words l) ≡ ℕ.suc n
       vin→S = {!!}
 
       kunti :  ∀ {a} → {A : Set a}
