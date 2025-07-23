@@ -325,11 +325,7 @@ module cumvla where
           → (s : Strong)
           → 𝕃.length s ℕ.> 1
           → (i : Fin $ 𝕍.length $ Bode.sp b)
-          → (n₁ n₂ : ℕ)
-          → (_≡_
-              (𝕃.map just s)
-              ((𝕃.take n₂ ∘ 𝕃.drop n₁)
-                (𝕍.toList $ 𝕍.lookup (Bode.sp₁ b) i)))
+          → words.Veritas.vin s $ 𝕍.toList $ 𝕍.lookup (Bode.sp₁ b) i
           → ∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
     ropas = {!!}
 
