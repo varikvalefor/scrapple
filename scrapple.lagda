@@ -317,14 +317,11 @@ module cumvla where
 
   words = words.words
 
-  f : List $ Maybe Char → List Strong
-  f = words
-
   →++↓ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
   →++↓ x = 𝕍→[𝕊] x 𝕃.++ 𝕍→[𝕊] (𝕍.transpose x)
 
   cumvla : Bode → List Strong
-  cumvla = 𝕃.concat ∘ 𝕃.map f ∘ →++↓ ∘ Bode.sp₁
+  cumvla = 𝕃.concat ∘ 𝕃.map words ∘ →++↓ ∘ Bode.sp₁
 
   module Veritas where
     ropas : (b : Bode)
