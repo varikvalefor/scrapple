@@ -265,7 +265,8 @@ module cumvla where
         d = _≡_.cong Fin $ _≡_.sym $ Σ.proj₂ $ vin→S s xs z $ _⊎_.inj₁ v
         coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
         coerce _≡_.refl x = x
-      ∈w xs s z (inj₂ v) = {!!}
+      ∈w xs s z (inj₂ (_⊎_.inj₁ v)) = {!!}
+      ∈w xs s z (inj₂ (inj₂ v)) = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
