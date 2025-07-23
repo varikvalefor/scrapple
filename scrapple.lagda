@@ -424,7 +424,19 @@ module jmina where
 
       kd : Bode.nikelci b ≡ Bode.nikelci (??.to-witness J)
       kd = {!!}
+\end{code}
 
+\section{la'oi .\AgdaRecord{Scrapple}.}
+ni'o ga naja ko'a goi la'oi .\B{x}.\ ctaipe la'oi .\AgdaRecord{Scrapple}.\ gi\ldots
+
+\begin{itemize}
+	\item ga je ko'a sinxa ko'e goi lo zazyfau pe lo valsi selkei gi
+	\item ga je la'o zoi.\ \AgdaField{Scrapple.bode} \B{x}\ .zoi.\ sinxa lo keirta'o pe ko'e gi
+	\item ga je la'o zoi.\ \AgdaField{Scrapple.lerste} \B{x}\ .zoi.\ liste lo'i ro lerfu poi curmi lo nu pilno ke'a ku'o no'u pe'a lo'i ro lerfu tapla je ke se vecnu\ldots ku'o je cu se klesi lo'i ro lerfu pe la'o zoi.\ \AgdaField{Scrapple.bode} \B{x}\ .zoi.\ gi
+	\item la .varik.\ cu pacna lo nu na sarcu fa lo nu sikicu bau la .lojban.\ fe lo du'u mo kau la'o zoi.\ \AgdaField{Scrapple.roval}\ .zoi.
+\end{itemize}
+
+\begin{code}
 record Scrapple (Valsi : Strong → Set) : Set
   where
   field
