@@ -271,11 +271,11 @@ module cumvla where
 
       xrt : ∀ {a} → {A : Set a}
           → (xs : List $ Maybe A)
-          → (_ : (n₁ n₂ : ℕ)
+          → (_ : (n₁ : ℕ)
                → (¬_
                    (_≡_
                      (𝕃.replicate 2 nothing)
-                     (𝕃.take n₂ $ 𝕃.drop n₁ xs))))
+                     (𝕃.take 2 $ 𝕃.drop n₁ xs))))
           → (_≡_
               xs
               ((𝕃.concat ∘ 𝕃.intersperse 𝕃.[ nothing ])
