@@ -145,6 +145,7 @@ open import Data.Maybe
     just
   )
 open import Data.Product
+  as Σ
   using (
     proj₁;
     _×_;
@@ -237,7 +238,7 @@ module cumvla where
       vin s xs = M 𝕃.take ⊎ Midju ⊎ M 𝕃.drop
         where
         M = λ f → ∃ $ λ n → 𝕃.map just s ≡ f n xs
-        Midju = Σ (_ × _) $ (k ≡_) ∘ Data.Product.uncurry (midju xs)
+        Midju = Σ (_ × _) $ (k ≡_) ∘ Σ.uncurry (midju xs)
           where
           k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
           midju = λ xs n₁ n₂ → 𝕃.take n₂ $ 𝕃.drop n₁ xs
