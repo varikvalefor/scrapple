@@ -199,6 +199,7 @@ open import Relation.Binary.PropositionalEquality
   as _≡_
   using (
     cong;
+    refl;
     sym;
     _≡_
   )
@@ -262,7 +263,7 @@ module cumvla where
             → ¬_ $ v ≡ 𝕃.[]
             → vin v l
             → ∃ $ λ n → 𝕃.length (words l) ≡ ℕ.suc n
-      vin→S 𝕃.[] _ N _ = ⊥-elim $ N _≡_.refl
+      vin→S 𝕃.[] _ N _ = ⊥-elim $ N refl
       vin→S v l N c = {!!}
 
       romidjus : (v : Strong)
@@ -279,7 +280,7 @@ module cumvla where
 
       kunti :  ∀ {a} → {A : Set a}
             → words {A = A} 𝕃.[] ≡ 𝕃.[]
-      kunti = _≡_.refl
+      kunti = refl
 
       ∈w : (xs : List $ Maybe Char)
          → (s : Strong)
@@ -290,7 +291,7 @@ module cumvla where
         where
         d = vin→S s xs z (_⊎_.inj₁ v) ▹ Σ.proj₂ ▹ sym ▹ cong Fin
         coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-        coerce _≡_.refl x = x
+        coerce refl x = x
       ∈w xs s z (inj₂ (_⊎_.inj₁ v)) = {!!}
       ∈w xs s z (inj₂ (inj₂ v)) = {!!}
 
@@ -402,7 +403,7 @@ module jmina where
     }
     where
     coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-    coerce _≡_.refl x = x
+    coerce refl x = x
   jmina! b w h k (Fin.suc Fin.zero) = {!!}
 
   jminan : (b : Bode)
