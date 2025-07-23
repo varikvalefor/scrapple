@@ -296,7 +296,7 @@ module cumvla where
          → (s : Strong)
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
          → vin s xs
-      w∈ 𝕃.[] s (() , d) -- .i narcu'i
+      w∈ 𝕃.[] s (() , d)
       w∈ (x 𝕃.∷ xs) s (f , d) = {!!}
 
       xrt : ∀ {a} → {A : Set a}
