@@ -362,7 +362,8 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
          → {B? : Relation.Nullary.Dec B}
          → Relation.Nullary.Dec $ A ⇒ B
     _⇒?_ A B {A?} {Relation.Nullary.yes b} = Relation.Nullary.yes $ _⊎_.inj₁ b
-    _⇒?_ A B {A?} {Relation.Nullary.no N} = {!!}
+    _⇒?_ A B {Relation.Nullary.yes cₐ} {Relation.Nullary.no N} = {!!}
+    _⇒?_ A B {Relation.Nullary.no Nₐ} {Relation.Nullary.no N} = {!!}
   M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
