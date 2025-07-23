@@ -388,7 +388,8 @@ module jmina where
                     (Data.Fin.toℕ w ℕ.+ 𝕃.length s)
                     (Bode.w b))
                   (All
-                    (??.Is-nothing {A = Char × Fin (Bode.nikelci b)})
+                    (??.Is-nothing
+                      {A = Char × Fin (Bode.nikelci b)})
                     (𝕃.take
                       (𝕃.length s)
                       (𝕃.drop (Data.Fin.toℕ w) {!!})))))
