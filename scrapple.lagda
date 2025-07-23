@@ -198,6 +198,7 @@ open import Data.List.Relation.Unary.All
 open import Relation.Binary.PropositionalEquality
   as _≡_
   using (
+    cong;
     _≡_
   )
 \end{code}
@@ -286,7 +287,7 @@ module cumvla where
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
       ∈w xs s z (_⊎_.inj₁ v) = coerce d Fin.zero , {!!}
         where
-        d = vin→S s xs z (_⊎_.inj₁ v) ▹ Σ.proj₂ ▹ _≡_.sym ▹ _≡_.cong Fin
+        d = vin→S s xs z (_⊎_.inj₁ v) ▹ Σ.proj₂ ▹ _≡_.sym ▹ cong Fin
         coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
         coerce _≡_.refl x = x
       ∈w xs s z (inj₂ (_⊎_.inj₁ v)) = {!!}
