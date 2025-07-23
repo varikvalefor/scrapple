@@ -356,8 +356,9 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
         → Bode.h b₁ ≡ Bode.h b₂
         → Fin (Bode.w b₁) × Fin (Bode.h b₁)
         → Set
-  Mapti wd hd (i₁ , i₂) = ??.Is-just (lookup₂ sp₁ i₁ i₂) ⇒_ $ lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
+  Mapti wd hd (i₁ , i₂) = ??.Is-just (lookup₂ sp₁ i₁ i₂) ⇒_ $ Dunli
     where
+    Dunli = lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
     _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
     _⇒_ X Z = Z ⊎ (¬ X)
     _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
