@@ -335,8 +335,8 @@ cumvla = cumvla.cumvla
 \section{le me'oi .iteration.\ se ctaipe}
 
 \begin{code}
-prane-zmadu : Bode → Bode → Set
-prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
+_⊑_ : Bode → Bode → Set
+_⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
   where
   coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
   coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
@@ -379,7 +379,7 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
               (lookup₂ sp₁ f₁ f₂)
               (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
 
-prane-zmadu? : Decidable₂ prane-zmadu
+prane-zmadu? : Decidable₂ _⊑_
 prane-zmadu? = {!!}
 
 module jmina where
