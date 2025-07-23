@@ -237,7 +237,7 @@ module cumvla where
       vin s xs = M 𝕃.take ⊎ Midju ⊎ M 𝕃.drop
         where
         M = λ f → ∃ $ λ n → 𝕃.map just s ≡ f n xs
-        Midju = Σ (ℕ × _) $ λ (n₁ , n₂) → k ≡ midju n₁ n₂ xs
+        Midju = Σ (_ × _) $ λ (n₁ , n₂) → k ≡ midju n₁ n₂ xs
           where
           k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
           midju = λ n₁ n₂ → 𝕃.take n₂ ∘ 𝕃.drop n₁
