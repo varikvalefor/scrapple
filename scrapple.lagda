@@ -249,7 +249,8 @@ module cumvla where
             → ¬_ $ v ≡ 𝕃.[]
             → vin v l
             → ∃ $ λ n → 𝕃.length (words l) ≡ ℕ.suc n
-      vin→S = {!!}
+      vin→S 𝕃.[] 𝕃.[] N v = {!!}
+      vin→S v l N c = {!!}
 
       kunti :  ∀ {a} → {A : Set a}
             → words {A = A} 𝕃.[] ≡ 𝕃.[]
