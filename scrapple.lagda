@@ -260,7 +260,10 @@ module cumvla where
          → ¬_ $ s ≡ 𝕃.[]
          → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-      ∈w xs s z (_⊎_.inj₁ v) = {!!}
+      ∈w xs s z (_⊎_.inj₁ v) = coerce {!!} Fin.zero , {!!}
+        where
+        coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
+        coerce _≡_.refl x = x
       ∈w xs s z (inj₂ v) = {!!}
 
       w∈ : (xs : List $ Maybe Char)
