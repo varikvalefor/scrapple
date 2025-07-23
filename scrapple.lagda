@@ -331,6 +331,13 @@ module cumvla where
           → ∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
     ropas = {!!}
 
+    rores : (b : Bode)
+          → (s : Strong)
+          → 𝕃.length s ℕ.> 1
+          → ∃ $ words.Veritas.vin s ∘ 𝕍.toList ∘ 𝕍.lookup (𝕍.transpose $ Bode.sp₁ b)
+          → ∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
+    rores = {!!}
+
 cumvla = cumvla.cumvla
 \end{code}
 
