@@ -404,7 +404,11 @@ module jmina where
         → Fin 2
         → Maybe Bode
   jmina = {!!}
+\end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
   module Veritas where
     module dunli (b : Bode)
                  (w : _)
