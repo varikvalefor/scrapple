@@ -379,8 +379,8 @@ _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
               (lookup₂ sp₁ f₁ f₂)
               (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
 
-prane-zmadu? : Decidable₂ _⊑_
-prane-zmadu? = {!!}
+_⊑?_ : Decidable₂ _⊑_
+_⊑?_ = {!!}
 
 module jmina where
   jmina! : (b : Bode)
