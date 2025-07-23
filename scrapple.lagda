@@ -166,7 +166,8 @@ open import Relation.Binary
 open import Relation.Nullary
   using (
     yes;
-    ¬_
+    ¬_;
+    no
   )
 open import Truthbrary.Data.Fin
   using (
@@ -363,8 +364,8 @@ prane-zmadu b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
          → {B? : Relation.Nullary.Dec B}
          → Relation.Nullary.Dec $ A ⇒ B
     _⇒?_ A B {A?} {yes b} = yes $ _⊎_.inj₁ b
-    _⇒?_ A B {yes cₐ} {Relation.Nullary.no N} = Relation.Nullary.no {!!}
-    _⇒?_ A B {Relation.Nullary.no Nₐ} {Relation.Nullary.no N} = yes $ inj₂ Nₐ
+    _⇒?_ A B {yes cₐ} {no N} = no {!!}
+    _⇒?_ A B {no Nₐ} {no N} = yes $ inj₂ Nₐ
   M = wd × hd × Bode.nikelci b₁ ≡ Bode.nikelci b₂
     where
     wd = Bode.w b₁ ≡ Bode.w b₂
