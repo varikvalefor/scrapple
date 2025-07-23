@@ -263,13 +263,13 @@ module cumvla where
       romidjus : (v : Strong)
                → (l : List $ Maybe Char)
                → (c : vin v l)
-               → ∃ $ λ x → c ≡ inj₂ (_⊎_.inj₁ x)
+               → (_⊎_
+                   (∃ $ λ x → c ≡ _⊎_.inj₁ x)
+                   (∃ $ λ x → c ≡ inj₂ (inj₂ x)))
                → (Σ
                    (vin v l)
                    (λ c₂ →
-                     (_⊎_
-                       (∃ $ λ x → c₂ ≡ _⊎_.inj₁ x)
-                       (∃ $ λ x → c₂ ≡ inj₂ (inj₂ x)))))
+                     (∃ $ λ x → c₂ ≡ inj₂ (_⊎_.inj₁ x))))
       romidjus = {!!}
 
       kunti :  ∀ {a} → {A : Set a}
