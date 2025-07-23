@@ -470,7 +470,11 @@ record Scrapple (Valsi : Strong → Set) : Set
     bode : Bode
     lerste : Strong
     roval : All Valsi $ cumvla bode
+\end{code}
 
+\section{la'oi .\AgdaRecord{ScrappleGame}.}
+
+\begin{code}
 record ScrappleGame (V : Strong → Set)
                     (V? : Decidable V) : Set
   where
