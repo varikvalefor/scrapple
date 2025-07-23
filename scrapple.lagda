@@ -329,10 +329,7 @@ module cumvla where
           → ∃ $ (s ≡_) ∘ 𝕃.lookup (cumvla b)
     ropas = {!!}
 
-open cumvla
-  using (
-    cumvla
-  )
+cumvla = cumvla.cumvla
 \end{code}
 
 \section{le me'oi .iteration.\ se ctaipe}
