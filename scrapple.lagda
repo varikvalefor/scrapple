@@ -244,6 +244,13 @@ module cumvla where
              → ¬_ $ vin v l
       >→¬vin = {!!}
 
+      vin→S : (v : Strong)
+            → (l : List $ Maybe Char)
+            → ¬_ $ v ≡ 𝕃.[]
+            → vin v l
+            → ∃ $ λ n → 𝕃.length l ≡ ℕ.suc n
+      vin→S = {!!}
+
       kunti :  ∀ {a} → {A : Set a}
             → words {A = A} 𝕃.[] ≡ 𝕃.[]
       kunti = _≡_.refl
