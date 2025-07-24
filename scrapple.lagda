@@ -256,7 +256,8 @@ module cumvla where
              → (l : List $ Maybe Char)
              → 𝕃.length v ℕ.> 𝕃.length l
              → ¬_ $ vin v l
-      >→¬vin v l z c = {!!}
+      >→¬vin v l z (_⊎_.inj₁ c) = {!!}
+      >→¬vin v l z (inj₂ c) = {!!}
 
       vin→S : (v : Strong)
             → (l : List $ Maybe Char)
