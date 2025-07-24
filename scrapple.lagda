@@ -264,7 +264,8 @@ module cumvla where
             → vin v l
             → ∃ $ λ n → 𝕃.length (words l) ≡ ℕ.suc n
       vin→S 𝕃.[] _ N _ = ⊥-elim $ N refl
-      vin→S v l N c = {!!}
+      vin→S v l N (_⊎_.inj₁ c) = {!!}
+      vin→S v l N (inj₂ c) = {!!}
 
       romidjus : (v : Strong)
                → (l : List $ Maybe Char)
