@@ -411,7 +411,7 @@ module _⊑_ where
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
 
   _⊑?_ : Decidable₂ _⊑_
-  _⊑?_ b c with Dec (M b c) Function.∋ M? b c
+  _⊑?_ b c with _ Function.∋ M? b c
   ... | no N = no $ N ∘ Σ.proj₁
   ... | yes M! with Data.List.Relation.Unary.All.all? Mapti?' _
     where
