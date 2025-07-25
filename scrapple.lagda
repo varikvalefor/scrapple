@@ -198,6 +198,10 @@ open import Data.List.Relation.Unary.All
   using (
     All
   )
+open import Data.Maybe.Relation.Unary.Any
+  as DMRUA
+  using (
+  )
 open import Relation.Binary.PropositionalEquality
   as _≡_
   using (
@@ -400,8 +404,6 @@ module _⊑_ where
     Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
       where
-      import Data.Maybe.Relation.Unary.Any
-        as DMRUA
       import Agda.Builtin.Unit
         as ABu
     open import Truthbrary.Record.Eq
