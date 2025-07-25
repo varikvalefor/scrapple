@@ -355,18 +355,19 @@ cumvla = cumvla.cumvla
 
 \begin{code}
 module _⊑_ where
+  lookup₂ : ∀ {a} → {A : Set a}
+          → {m n : ℕ}
+          → 𝕄 A m n
+          → Fin m
+          → Fin n
+          → A
+  lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
+
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti _ _ wd hd) coords
     where
     coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
-    lookup₂ : ∀ {a} → {A : Set a}
-            → {m n : ℕ}
-            → 𝕄 A m n
-            → Fin m
-            → Fin n
-            → A
-    lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
     Mapti : (b₁ b₂ : Bode)
