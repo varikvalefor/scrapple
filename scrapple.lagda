@@ -429,7 +429,7 @@ module _⊑_ where
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ x → All (Mpt x) coords
     where
-    Mpt = λ x → Mapti b₁ b₂ x
+    Mpt = Mapti b₁ b₂
 
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
