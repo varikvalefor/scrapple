@@ -397,7 +397,7 @@ module _⊑_ where
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
     where
-    coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
+    coords : {n₁ n₂ : ℕ} → List $ Fin n₁ × Fin n₂
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
