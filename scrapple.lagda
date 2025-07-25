@@ -407,7 +407,6 @@ module _⊑_ where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
     Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
-      where
     open import Truthbrary.Record.Eq
       using (
         _≟_
