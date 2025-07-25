@@ -394,7 +394,12 @@ module _⊑_ where
          → (hd : Bode.h b₁ ≡ Bode.h b₂)
          → (i : Fin (Bode.w b₁) × Fin (Bode.h b₁))
          → Dec $ Mapti b₁ b₂ wd hd i
-  Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {{!!}} {{!!}}
+  Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {{!!}} {_ ≟ _}
+    where
+    open import Truthbrary.Record.Eq
+      using (
+        _≟_
+      )
 
   M : Bode → Bode → Set
   M b₁ b₂ = wd × hd × D Bode.nikelci
