@@ -363,6 +363,9 @@ module _⊑_ where
           → A
   lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
 
+  _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+  _⇒_ X Z = Z ⊎ (¬ X)
+
   Mapti : (b₁ b₂ : Bode)
         → Bode.w b₁ ≡ Bode.w b₂
         → Bode.h b₁ ≡ Bode.h b₂
@@ -371,8 +374,6 @@ module _⊑_ where
   Mapti b₁ b₂ wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
     where
     Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
-    _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-    _⇒_ X Z = Z ⊎ (¬ X)
     _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
          → {A? : Dec A}
          → {B? : Dec B}
