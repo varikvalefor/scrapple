@@ -406,9 +406,9 @@ module _⊑_ where
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with {!!} Function.∋ M? b c
   ... | no N = no $ N ∘ Σ.proj₁
-  ... | yes M! with Bode.w b ℕ.≟ Bode.w c
+  ... | yes M! with Data.List.Relation.Unary.All.all? {!!} _
+  ... | yes rov = yes $ M! , rov
   ... | no N = {!!}
-  ... | yes d₁ = {!!}
 
 _⊑_ = _⊑_._⊑_
 
