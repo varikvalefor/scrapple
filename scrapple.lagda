@@ -412,17 +412,19 @@ module _⊑_ where
         _≟_
       )
 
-  M : Bode → Bode → Set
-  M b₁ b₂ = D Bode.w × D Bode.h × D Bode.nikelci
-    where
+  record M (b c : Bode) : Set where
     D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
-    D f = f b₁ ≡ f b₂
+    D f = f b ≡ f c
+    field
+      wd : D Bode.w
+      hd : D Bode.h
+      kd : D Bode.nikelci
 
   M? : Decidable₂ M
   M? = {!!}
 
   _⊑_ : Bode → Bode → Set
-  _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
+  _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ x → All (Mapti b₁ b₂ (M.wd x) $ M.hd x) coords
 
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
