@@ -363,6 +363,24 @@ module _⊑_ where
           → A
   lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
 
+  Mapti : (b₁ b₂ : Bode)
+        → Bode.w b₁ ≡ Bode.w b₂
+        → Bode.h b₁ ≡ Bode.h b₂
+        → Fin (Bode.w b₁) × Fin (Bode.h b₁)
+        → Set
+  Mapti b₁ b₂ wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
+    where
+    Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
+    _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+    _⇒_ X Z = Z ⊎ (¬ X)
+    _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
+         → {A? : Dec A}
+         → {B? : Dec B}
+         → Dec $ A ⇒ B
+    _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
+    _⇒?_ _ _ {yes cₐ} {no N} = no {!!}
+    _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
+
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti _ _ wd hd) coords
     where
@@ -370,23 +388,6 @@ module _⊑_ where
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
-    Mapti : (b₁ b₂ : Bode)
-          → Bode.w b₁ ≡ Bode.w b₂
-          → Bode.h b₁ ≡ Bode.h b₂
-          → Fin (Bode.w b₁) × Fin (Bode.h b₁)
-          → Set
-    Mapti b₁ b₂ wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
-      where
-      Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
-      _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-      _⇒_ X Z = Z ⊎ (¬ X)
-      _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
-           → {A? : Dec A}
-           → {B? : Dec B}
-           → Dec $ A ⇒ B
-      _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
-      _⇒?_ _ _ {yes cₐ} {no N} = no {!!}
-      _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
     M = wd × hd × D Bode.nikelci
       where
       D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
