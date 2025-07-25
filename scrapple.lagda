@@ -399,13 +399,6 @@ module _⊑_ where
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
-    rd = λ wd hd
-       → (    (f₁ : _)
-            → (f₂ : _)
-            → ??.Is-just (lookup₂ sp₁ f₁ f₂)
-            → (_≡_
-                (lookup₂ sp₁ f₁ f₂)
-                (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
 
 _⊑_ = _⊑_._⊑_
 
