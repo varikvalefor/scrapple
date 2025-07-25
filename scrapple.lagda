@@ -406,7 +406,7 @@ module _⊑_ where
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with {!!} Function.∋ M? b c
   ... | yes M! = {!!}
-  ... | no N = no {!!}
+  ... | no N = no $ N ∘ Σ.proj₁
 
 _⊑_ = _⊑_._⊑_
 
