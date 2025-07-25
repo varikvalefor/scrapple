@@ -413,7 +413,7 @@ module _⊑_ where
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with {!!} Function.∋ M? b c
   ... | no N = no $ N ∘ Σ.proj₁
-  ... | yes M! with Data.List.Relation.Unary.All.all? {!!} _
+  ... | yes M! with Data.List.Relation.Unary.All.all? (Mapti? b c {!!} {!!}) _
   ... | yes rov = yes $ M! , rov
   ... | no N = {!!}
 
