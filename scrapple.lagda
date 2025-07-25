@@ -184,6 +184,10 @@ open import Truthbrary.Data.Fin
   using (
     mink
   )
+open import Truthbrary.Record.Eq
+  using (
+    _≟_
+  )
 open import Truthbrary.Record.LLC
   using (
     _∈_
@@ -407,10 +411,6 @@ module _⊑_ where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
     Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
-    open import Truthbrary.Record.Eq
-      using (
-        _≟_
-      )
 
   record M (b c : Bode) : Set where
     D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
