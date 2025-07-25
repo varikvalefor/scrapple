@@ -393,6 +393,21 @@ module _⊑_ where
   coords : {n₁ n₂ : ℕ} → List $ Fin n₁ × Fin n₂
   coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
 
+  record M (b c : Bode) : Set where
+    D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
+    D f = f b ≡ f c
+    field
+      wd : D Bode.w
+      hd : D Bode.h
+      kd : D Bode.nikelci
+
+  M? : Decidable₂ M
+  M? b c with _ ≟ _ | _ ≟ _ | _ ≟ _
+  ... | no Nw | _ | _ = no $ Nw ∘ M.wd
+  ... | _ | no Nh | _ = no $ Nh ∘ M.hd
+  ... | _ | _ | no Nk = no $ Nk ∘ M.kd
+  ... | yes w | yes h | yes k = yes $ record {wd = w; hd = h; kd = k}
+
   Mapti : (b₁ b₂ : Bode)
         → Bode.w b₁ ≡ Bode.w b₂
         → Bode.h b₁ ≡ Bode.h b₂
@@ -411,21 +426,6 @@ module _⊑_ where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
     Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
-
-  record M (b c : Bode) : Set where
-    D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
-    D f = f b ≡ f c
-    field
-      wd : D Bode.w
-      hd : D Bode.h
-      kd : D Bode.nikelci
-
-  M? : Decidable₂ M
-  M? b c with _ ≟ _ | _ ≟ _ | _ ≟ _
-  ... | no Nw | _ | _ = no $ Nw ∘ M.wd
-  ... | _ | no Nh | _ = no $ Nh ∘ M.hd
-  ... | _ | _ | no Nk = no $ Nk ∘ M.kd
-  ... | yes w | yes h | yes k = yes $ record {wd = w; hd = h; kd = k}
 
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ x → All (Mpt x) coords
