@@ -382,14 +382,14 @@ module _⊑_ where
     _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
 
   _⊑_ : Bode → Bode → Set
-  _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti _ _ wd hd) coords
+  _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , kd) → All (Mapti _ _ wd hd) coords
     where
     coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
-    M : Set
-    M = wd × hd × D Bode.nikelci
+    M : Bode → Bode → Set
+    M b₁ b₂ = wd × hd × D Bode.nikelci
       where
       D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
       D f = f b₁ ≡ f b₂
