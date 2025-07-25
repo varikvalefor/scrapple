@@ -422,7 +422,11 @@ module _⊑_ where
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
+\end{code}
 
+\section{le jmina pe'a fancu}
+
+\begin{code}
 module jmina where
   jmina! : (b : Bode)
          → Fin $ Bode.w b
