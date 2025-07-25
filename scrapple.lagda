@@ -427,7 +427,7 @@ module _⊑_ where
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
 
   _⊑_ : Bode → Bode → Set
-  _⊑_ b₁ b₂ = Σ (_) $ λ x → All (Mapti b₁ b₂ x) coords
+  _⊑_ b₁ b₂ = Σ _ $ λ x → All (Mapti b₁ b₂ x) coords
 
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
