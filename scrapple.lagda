@@ -176,6 +176,10 @@ open import Relation.Nullary
     ¬_;
     no
   )
+open import Agda.Builtin.Unit
+  as ABu
+  using (
+  )
 open import Truthbrary.Data.Fin
   using (
     mink
@@ -404,8 +408,6 @@ module _⊑_ where
     Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
       where
-      import Agda.Builtin.Unit
-        as ABu
     open import Truthbrary.Record.Eq
       using (
         _≟_
