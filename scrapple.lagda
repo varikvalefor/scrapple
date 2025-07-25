@@ -374,7 +374,7 @@ module _⊑_ where
   _⇒?_ _ _ {yes cₐ} {no N} = no f
     where
     f : ¬_ $ _ ⇒ _
-    f = _⊎_.[_,_] (⊥-elim ∘ N) (⊥-elim ∘ (_$ cₐ))
+    f = ⊥-elim ∘ _⊎_.[_,_] (N) ((_$ cₐ))
   _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
 
   coords : {n₁ n₂ : ℕ} → List $ Fin n₁ × Fin n₂
