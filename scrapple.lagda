@@ -354,49 +354,52 @@ cumvla = cumvla.cumvla
 \section{le me'oi .iteration.\ se ctaipe}
 
 \begin{code}
-_⊑_ : Bode → Bode → Set
-_⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
-  where
-  coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
-  coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
-  lookup₂ : ∀ {a} → {A : Set a}
-          → {m n : ℕ}
-          → 𝕄 A m n
-          → Fin m
-          → Fin n
-          → A
-  lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
-  sp₁ = Bode.sp₁ b₁
-  sp₂ = Bode.sp₁ b₂
-  Mapti : Bode.w b₁ ≡ Bode.w b₂
-        → Bode.h b₁ ≡ Bode.h b₂
-        → Fin (Bode.w b₁) × Fin (Bode.h b₁)
-        → Set
-  Mapti wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ sp₁ i₁ i₂
+module _⊑_ where
+  _⊑_ : Bode → Bode → Set
+  _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
     where
-    Dunli = lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
-    _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-    _⇒_ X Z = Z ⊎ (¬ X)
-    _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
-         → {A? : Dec A}
-         → {B? : Dec B}
-         → Dec $ A ⇒ B
-    _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
-    _⇒?_ _ _ {yes cₐ} {no N} = no {!!}
-    _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
-  M = wd × hd × D Bode.nikelci
-    where
-    D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
-    D f = f b₁ ≡ f b₂
-    wd = D Bode.w
-    hd = D Bode.h
-  rd = λ wd hd
-     → (    (f₁ : _)
-          → (f₂ : _)
-          → ??.Is-just (lookup₂ sp₁ f₁ f₂)
-          → (_≡_
-              (lookup₂ sp₁ f₁ f₂)
-              (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
+    coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
+    coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
+    lookup₂ : ∀ {a} → {A : Set a}
+            → {m n : ℕ}
+            → 𝕄 A m n
+            → Fin m
+            → Fin n
+            → A
+    lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
+    sp₁ = Bode.sp₁ b₁
+    sp₂ = Bode.sp₁ b₂
+    Mapti : Bode.w b₁ ≡ Bode.w b₂
+          → Bode.h b₁ ≡ Bode.h b₂
+          → Fin (Bode.w b₁) × Fin (Bode.h b₁)
+          → Set
+    Mapti wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ sp₁ i₁ i₂
+      where
+      Dunli = lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
+      _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
+      _⇒_ X Z = Z ⊎ (¬ X)
+      _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
+           → {A? : Dec A}
+           → {B? : Dec B}
+           → Dec $ A ⇒ B
+      _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
+      _⇒?_ _ _ {yes cₐ} {no N} = no {!!}
+      _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
+    M = wd × hd × D Bode.nikelci
+      where
+      D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
+      D f = f b₁ ≡ f b₂
+      wd = D Bode.w
+      hd = D Bode.h
+    rd = λ wd hd
+       → (    (f₁ : _)
+            → (f₂ : _)
+            → ??.Is-just (lookup₂ sp₁ f₁ f₂)
+            → (_≡_
+                (lookup₂ sp₁ f₁ f₂)
+                (lookup₂ sp₂ (mink f₁ wd) $ mink f₂ hd)))
+
+_⊑_ = _⊑_._⊑_
 
 _⊑?_ : Decidable₂ _⊑_
 _⊑?_ = {!!}
