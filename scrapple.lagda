@@ -388,6 +388,7 @@ module _⊑_ where
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
+    M : Set
     M = wd × hd × D Bode.nikelci
       where
       D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
