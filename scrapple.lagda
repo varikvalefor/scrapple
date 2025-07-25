@@ -421,6 +421,8 @@ module _⊑_ where
 
 _⊑_ = _⊑_._⊑_
 
+_⊑?_ = _⊑_._⊑?_
+
 module jmina where
   jmina! : (b : Bode)
          → Fin $ Bode.w b
