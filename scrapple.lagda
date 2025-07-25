@@ -415,7 +415,7 @@ module _⊑_ where
   ... | no N = no $ N ∘ Σ.proj₁
   ... | yes M! with Data.List.Relation.Unary.All.all? Mapti?' _
     where
-    Mapti?' = Mapti? b c (M! .proj₁) $ M! .Σ.proj₂ .proj₁
+    Mapti?' = Mapti? b c (M! .proj₁) $ _
   ... | yes rov = yes $ M! , rov
   ... | no N = {!!}
 
