@@ -125,7 +125,8 @@ open import Function
     _$_
   )
   renaming (
-    _|>_ to _▹_
+    _|>_ to _▹_;
+    flip to _⍨
   )
 open import Data.Char
   using (
