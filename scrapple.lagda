@@ -374,7 +374,7 @@ module _⊑_ where
   _⇒?_ _ _ {yes cₐ} {no N} = no f
     where
     f : ¬_ $ _ ⇒ _
-    f (_⊎_.inj₁ j) = {!!}
+    f (_⊎_.inj₁ j) = ⊥-elim $ N j
     f (inj₂ j) = {!!}
   _⇒?_ _ _ {no Nₐ} {no N} = yes $ inj₂ Nₐ
 
