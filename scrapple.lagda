@@ -404,7 +404,9 @@ module _⊑_ where
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
 
   _⊑?_ : Decidable₂ _⊑_
-  _⊑?_ = {!!}
+  _⊑?_ b c with {!!} Function.∋ M? b c
+  ... | yes M! = {!!}
+  ... | no N = {!!}
 
 _⊑_ = _⊑_._⊑_
 
