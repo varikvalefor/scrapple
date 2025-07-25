@@ -401,7 +401,6 @@ module _⊑_ where
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
     where
     sp₁ = Bode.sp₁ b₁
-    sp₂ = Bode.sp₁ b₂
 
 _⊑_ = _⊑_._⊑_
 
