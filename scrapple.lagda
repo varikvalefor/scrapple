@@ -397,7 +397,8 @@ module _⊑_ where
   Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
-    Is-just? = {!!}
+    Is-just? (just x) = {!!}
+    Is-just? nothing = {!!}
     open import Truthbrary.Record.Eq
       using (
         _≟_
