@@ -394,8 +394,10 @@ module _⊑_ where
          → (hd : Bode.h b₁ ≡ Bode.h b₂)
          → (i : Fin (Bode.w b₁) × Fin (Bode.h b₁))
          → Dec $ Mapti b₁ b₂ wd hd i
-  Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {{!!}} {_ ≟ _}
+  Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
+    Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
+    Is-just? = {!!}
     open import Truthbrary.Record.Eq
       using (
         _≟_
