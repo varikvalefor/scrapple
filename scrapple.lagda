@@ -405,8 +405,7 @@ module _⊑_ where
   Mapti? : (b₁ b₂ : Bode)
          → (wd : Bode.w b₁ ≡ Bode.w b₂)
          → (hd : Bode.h b₁ ≡ Bode.h b₂)
-         → (i : _)
-         → Dec $ Mapti b₁ b₂ wd hd i
+         → Decidable $ Mapti b₁ b₂ wd hd
   Mapti? _ _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
