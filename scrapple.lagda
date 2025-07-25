@@ -421,7 +421,11 @@ module _⊑_ where
       kd : D Bode.nikelci
 
   M? : Decidable₂ M
-  M? = {!!}
+  M? b c with _ ≟ _ | _ ≟ _ | _ ≟ _
+  ... | no Nw | _ | _ = no $ Nw ∘ M.wd
+  ... | _ | no Nh | _ = no $ Nh ∘ M.hd
+  ... | _ | _ | no Nk = no $ Nk ∘ M.kd
+  ... | yes w | yes h | yes k = yes $ record {wd = w; hd = h; kd = k}
 
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ x → All (Mpt x) coords
