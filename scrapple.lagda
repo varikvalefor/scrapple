@@ -405,7 +405,7 @@ module _⊑_ where
   Mapti? : (b₁ b₂ : Bode)
          → (wd : Bode.w b₁ ≡ Bode.w b₂)
          → (hd : Bode.h b₁ ≡ Bode.h b₂)
-         → (i : Fin (Bode.w b₁) × Fin (Bode.h b₁))
+         → (i : Fin (Bode.w b₁) × Fin _)
          → Dec $ Mapti b₁ b₂ wd hd i
   Mapti? _ _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
