@@ -413,11 +413,10 @@ module _⊑_ where
       )
 
   M : Bode → Bode → Set
-  M b₁ b₂ = wd × hd × D Bode.nikelci
+  M b₁ b₂ = D Bode.w × hd × D Bode.nikelci
     where
     D : ∀ {a} → {A : Set a} → (Bode → A) → Set a
     D f = f b₁ ≡ f b₂
-    wd = D Bode.w
     hd = D Bode.h
 
   M? : Decidable₂ M
