@@ -403,7 +403,7 @@ module _⊑_ where
         as DMRUA
       import Agda.Builtin.Unit
         as ABu
-    Is-just? nothing = {!!}
+    Is-just? nothing = no $ λ ()
     open import Truthbrary.Record.Eq
       using (
         _≟_
