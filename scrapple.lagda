@@ -356,7 +356,7 @@ cumvla = cumvla.cumvla
 \begin{code}
 module _⊑_ where
   _⊑_ : Bode → Bode → Set
-  _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti wd hd) coords
+  _⊑_ b₁ b₂ = Σ M $ λ (wd , hd , kd) → All (Mapti _ _ wd hd) coords
     where
     coords : List $ Fin (Bode.w b₁) × Fin (Bode.h b₁)
     coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
@@ -369,13 +369,14 @@ module _⊑_ where
     lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
     sp₁ = Bode.sp₁ b₁
     sp₂ = Bode.sp₁ b₂
-    Mapti : Bode.w b₁ ≡ Bode.w b₂
+    Mapti : (b₁ b₂ : Bode)
+          → Bode.w b₁ ≡ Bode.w b₂
           → Bode.h b₁ ≡ Bode.h b₂
           → Fin (Bode.w b₁) × Fin (Bode.h b₁)
           → Set
-    Mapti wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ sp₁ i₁ i₂
+    Mapti b₁ b₂ wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
       where
-      Dunli = lookup₂ sp₁ i₁ i₂ ≡ lookup₂ sp₂ (mink i₁ wd) (mink i₂ hd)
+      Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
       _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
       _⇒_ X Z = Z ⊎ (¬ X)
       _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
