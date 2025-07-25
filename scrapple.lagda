@@ -417,7 +417,7 @@ module _⊑_ where
     where
     Mapti?' = Mapti? b c _ _
   ... | yes rov = yes $ M! , rov
-  ... | no N = {!!}
+  ... | no N = no {!!}
 
 _⊑_ = _⊑_._⊑_
 
