@@ -403,10 +403,10 @@ module _⊑_ where
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ (wd , hd , _) → All (Mapti b₁ b₂ wd hd) coords
 
-_⊑_ = _⊑_._⊑_
+  _⊑?_ : Decidable₂ _⊑_
+  _⊑?_ = {!!}
 
-_⊑?_ : Decidable₂ _⊑_
-_⊑?_ = {!!}
+_⊑_ = _⊑_._⊑_
 
 module jmina where
   jmina! : (b : Bode)
