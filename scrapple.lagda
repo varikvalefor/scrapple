@@ -397,13 +397,13 @@ module _⊑_ where
   Mapti? = λ _ _ _ _ _ → _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
+    Is-just? nothing = no $ λ ()
     Is-just? (just x) = yes $ DMRUA.just ABu.tt
       where
       import Data.Maybe.Relation.Unary.Any
         as DMRUA
       import Agda.Builtin.Unit
         as ABu
-    Is-just? nothing = no $ λ ()
     open import Truthbrary.Record.Eq
       using (
         _≟_
