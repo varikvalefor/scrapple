@@ -23,6 +23,7 @@
 \newunicodechar{∘}{\ensuremath{\mathnormal\circ}}
 \newunicodechar{∀}{\ensuremath{\mathnormal\forall}}
 \newunicodechar{⊤}{\ensuremath{\mathnormal\top}}
+\newunicodechar{⊥}{\ensuremath{\mathnormal\bot}}
 \newunicodechar{λ}{\ensuremath{\mathnormal\lambda}}
 \newunicodechar{→}{\ensuremath{\mathnormal\rightarrow}}
 \newunicodechar{⇒}{\ensuremath{\mathnormal\Rightarrow}}
