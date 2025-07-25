@@ -389,6 +389,13 @@ module _⊑_ where
     where
     Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
 
+  Mapti? : (b₁ b₂ : Bode)
+         → (wd : Bode.w b₁ ≡ Bode.w b₂)
+         → (hd : Bode.h b₁ ≡ Bode.h b₂)
+         → (i : Fin (Bode.w b₁) × Fin (Bode.h b₁))
+         → Dec $ Mapti b₁ b₂ wd hd i
+  Mapti? = {!!}
+
   M : Bode → Bode → Set
   M b₁ b₂ = wd × hd × D Bode.nikelci
     where
