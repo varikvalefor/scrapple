@@ -409,19 +409,18 @@ module _⊑_ where
   ... | yes w | yes h | yes k = yes $ record {wd = w; hd = h; kd = k}
 
   Mapti : (b₁ b₂ : Bode)
-        → Bode.w b₁ ≡ Bode.w b₂
-        → Bode.h b₁ ≡ Bode.h b₂
+        → M b₁ b₂
         → Fin (Bode.w b₁) × Fin (Bode.h b₁)
         → Set
-  Mapti b₁ b₂ wd hd (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
+  Mapti b₁ b₂ m (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
     where
+    open M m
     Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (mink i₁ wd) (mink i₂ hd)
 
   Mapti? : (b₁ b₂ : Bode)
-         → (wd : Bode.w b₁ ≡ Bode.w b₂)
-         → (hd : Bode.h b₁ ≡ Bode.h b₂)
-         → Decidable $ Mapti b₁ b₂ wd hd
-  Mapti? _ _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
+         → (m : M b₁ b₂)
+         → Decidable $ Mapti b₁ b₂ m
+  Mapti? _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
     where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
     Is-just? nothing = no $ λ ()
@@ -430,14 +429,14 @@ module _⊑_ where
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = Σ (M b₁ b₂) $ λ x → All (Mpt x) coords
     where
-    Mpt = λ x → Mapti b₁ b₂ (M.wd x) $ M.hd x
+    Mpt = λ x → Mapti b₁ b₂ x
 
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
   ... | no N = no $ N ∘ Σ.proj₁
   ... | yes M! with Data.List.Relation.Unary.All.all? Mapti?' _
     where
-    Mapti?' = Mapti? b c _ _
+    Mapti?' = Mapti? b c M!
   ... | yes rov = yes $ M! , rov
   ... | no N = no {!!}
 
