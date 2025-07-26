@@ -515,6 +515,15 @@ module jmina where
 
       kd : Bode.nikelci b ≡ Bode.nikelci (??.to-witness J)
       kd = {!!}
+
+    j⊑ : (b : Bode)
+       → (w : _)
+       → (h : _)
+       → (k : _)
+       → (d : _)
+       → (J : ??.Is-just $ jmina b w h k d)
+       → b ⊑ ??.to-witness J
+    j⊑ = {!!}
 \end{code}
 
 \section{la'oi .\AgdaRecord{Scrapple}.}
