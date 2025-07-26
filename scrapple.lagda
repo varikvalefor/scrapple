@@ -493,6 +493,7 @@ module jmina where
         → Fin $ Bode.h b
         → Fin $ Bode.nikelci b
         → Fin 2
+        → Strong
         → Maybe Bode
   jmina = {!!}
 \end{code}
@@ -506,7 +507,8 @@ module jmina where
                  (h : _)
                  (k : _)
                  (d : _)
-                 (J : ??.Is-just $ jmina b w h k d) where
+                 (s : _)
+                 (J : ??.Is-just $ jmina b w h k d s) where
       wd : Bode.w b ≡ Bode.w (??.to-witness J)
       wd = {!!}
 
@@ -521,7 +523,8 @@ module jmina where
        → (h : _)
        → (k : _)
        → (d : _)
-       → (J : ??.Is-just $ jmina b w h k d)
+       → (s : _)
+       → (J : ??.Is-just $ jmina b w h k d s)
        → b ⊑ ??.to-witness J
     j⊑ = {!!}
 \end{code}
