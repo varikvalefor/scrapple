@@ -560,12 +560,14 @@ record ScrappleGame (V : Strong → Set)
   open Scrapple scrapple
   open Bode (Scrapple.bode scrapple)
 
+  data Exception : Set where
+
   jmina : Fin w
         → Fin h
         → Fin nikelci
         → Fin 2
         → Strong
-        → ScrappleGame V V? ⊎ (Set ∋ {!!})
+        → ScrappleGame V V? ⊎ (Set ∋ Exception)
   jmina = {!!}
 
   jmina-fliba-¬V : (w : Fin w)
