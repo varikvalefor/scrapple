@@ -575,22 +575,16 @@ record ScrappleGame (V : Strong → Set)
       f₁ (no N) = inj₂ $ Malvla $ s , N
       f₁ (yes v) = {!!}
 
-  jmina = sgjmina.jmina
-
-  jmina-fliba-¬V : (w : Fin w)
-                 → (h : Fin h)
-                 → (k : Fin nikelci)
-                 → (d : Fin 2)
-                 → (s : Strong)
-                 → ¬ V s
-                 → ∃ $ λ x → jmina w h k d s ≡ inj₂ x
-  jmina-fliba-¬V w h k d s x = Malvla (s , x) , dx
-    where
-    dx : _ ≡ _
-    dx = begin
-      jmina w h k d s ≡⟨ {!!} ⟩
-      inj₂ (Malvla $ s , x) ∎
+    jmina-fliba-¬V : ¬ V s → ∃ $ λ x → jmina ≡ inj₂ x
+    jmina-fliba-¬V x = Malvla (s , x) , dx
       where
-      open _≡_.≡-Reasoning
+      dx : _ ≡ _
+      dx = begin
+        jmina ≡⟨ {!!} ⟩
+        inj₂ (Malvla $ s , x) ∎
+        where
+        open _≡_.≡-Reasoning
+
+  jmina = sgjmina.jmina
 \end{code}
 \end{document}
