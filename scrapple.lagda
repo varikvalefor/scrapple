@@ -578,13 +578,13 @@ record ScrappleGame (V : Strong → Set)
 
     module Veritas where
       jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
-      jmina-fliba-¬V x = Malvla (s , x) , dx
+      jmina-fliba-¬V sex = Malvla (s , sex) , dx
         where
         dx : _ ≡ _
         dx = begin
           jmina ≡⟨ {!!} ⟩
-          f₁ (no x) ≡⟨ refl ⟩
-          inj₂ (Malvla $ s , x) ∎
+          f₁ (no sex) ≡⟨ refl ⟩
+          inj₂ (Malvla $ s , sex) ∎
           where
           open _≡_.≡-Reasoning
 
