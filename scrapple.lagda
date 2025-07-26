@@ -570,7 +570,7 @@ record ScrappleGame (V : Strong → Set)
         → Strong
         → ScrappleGame V V? ⊎ (Set ∋ Exception)
   jmina w h k d s with V? s
-  ... | no N = {!!}
+  ... | no N = inj₂ {!!}
   ... | yes v = {!!}
 
   jmina-fliba-¬V : (w : Fin w)
