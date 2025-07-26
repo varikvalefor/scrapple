@@ -575,7 +575,7 @@ record ScrappleGame (V : Strong → Set)
       f₁ (no N) = inj₂ $ Malvla $ s , N
       f₁ (yes v) = {!!}
 
-    jmina-fliba-¬V : ¬ V s → ∃ $ λ x → jmina ≡ inj₂ x
+    jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
     jmina-fliba-¬V x = Malvla (s , x) , dx
       where
       dx : _ ≡ _
