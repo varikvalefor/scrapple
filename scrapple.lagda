@@ -569,9 +569,11 @@ record ScrappleGame (V : Strong → Set)
         → Fin 2
         → Strong
         → ScrappleGame V V? ⊎ (Set ∋ Exception)
-  jmina w h k d s with V? s
-  ... | no N = inj₂ $ Malvla $ s , N
-  ... | yes v = {!!}
+  jmina w h k d s = f₁ $ V? s
+    where
+    f₁ : Dec $ V s → _
+    f₁ (no N) = inj₂ $ Malvla $ s , N
+    f₁ (yes v) = {!!}
 
   jmina-fliba-¬V : (w : Fin w)
                  → (h : Fin h)
