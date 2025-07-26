@@ -582,7 +582,7 @@ record ScrappleGame (V : Strong → Set)
         where
         dx : _ ≡ _
         dx = begin
-          jmina ≡⟨ {!!} ⟩
+          jmina ≡⟨ refl ⟩
           f₁ (V? s) ≡⟨ {!!} ⟩
           f₁ (no sex) ≡⟨ refl ⟩
           inj₂ (Malvla $ s , sex) ∎
