@@ -417,9 +417,10 @@ module _⊑_ where
   Mapti b₁ b₂ m (i₁ , i₂) = (_⇒ Dunli) $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
     where
     open M m
-    Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (i₁') (mink i₂ hd)
+    Dunli = lookup₂ (Bode.sp₁ b₁) i₁ i₂ ≡ lookup₂ (Bode.sp₁ b₂) (i₁') (i₂')
       where
       i₁' = mink i₁ wd
+      i₂' = mink i₂ hd
 
   Mapti? : (b₁ b₂ : Bode)
          → (m : M b₁ b₂)
