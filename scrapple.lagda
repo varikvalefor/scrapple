@@ -568,12 +568,13 @@ record ScrappleGame (V : Strong → Set)
                (k : Fin nikelci)
                (d : Fin 2)
                (s : Strong) where
+
+    f₁ : Dec $ V s → _
+    f₁ (no N) = inj₂ $ Malvla $ s , N
+    f₁ (yes v) = {!!}
+
     jmina : ScrappleGame V V? ⊎ (Set ∋ Exception)
     jmina = f₁ $ V? s
-      where
-      f₁ : Dec $ V s → _
-      f₁ (no N) = inj₂ $ Malvla $ s , N
-      f₁ (yes v) = {!!}
 
     module Veritas where
       jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
