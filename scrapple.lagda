@@ -583,6 +583,7 @@ record ScrappleGame (V : Strong → Set)
         dx : _ ≡ _
         dx = begin
           jmina ≡⟨ {!!} ⟩
+          f₁ (no x) ≡⟨ {!!} ⟩
           inj₂ (Malvla $ s , x) ∎
           where
           open _≡_.≡-Reasoning
