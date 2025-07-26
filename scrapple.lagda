@@ -563,17 +563,19 @@ record ScrappleGame (V : Strong → Set)
   data Exception : Set where
     Malvla : ∃ $ ¬_ ∘ V → Exception
 
-  jmina : Fin w
-        → Fin h
-        → Fin nikelci
-        → Fin 2
-        → Strong
-        → ScrappleGame V V? ⊎ (Set ∋ Exception)
-  jmina w h k d s = f₁ $ V? s
-    where
-    f₁ : Dec $ V s → _
-    f₁ (no N) = inj₂ $ Malvla $ s , N
-    f₁ (yes v) = {!!}
+  module sgjmina (w : Fin w)
+               (h : Fin h)
+               (k : Fin nikelci)
+               (d : Fin 2)
+               (s : Strong) where
+    jmina : ScrappleGame V V? ⊎ (Set ∋ Exception)
+    jmina = f₁ $ V? s
+      where
+      f₁ : Dec $ V s → _
+      f₁ (no N) = inj₂ $ Malvla $ s , N
+      f₁ (yes v) = {!!}
+
+  jmina = sgjmina.jmina
 
   jmina-fliba-¬V : (w : Fin w)
                  → (h : Fin h)
