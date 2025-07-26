@@ -561,6 +561,7 @@ record ScrappleGame (V : Strong → Set)
   open Bode (Scrapple.bode scrapple)
 
   data Exception : Set where
+    Malvla : ∃ $ ¬_ ∘ V → Exception
 
   jmina : Fin w
         → Fin h
