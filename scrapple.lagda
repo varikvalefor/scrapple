@@ -575,15 +575,16 @@ record ScrappleGame (V : Strong → Set)
       f₁ (no N) = inj₂ $ Malvla $ s , N
       f₁ (yes v) = {!!}
 
-    jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
-    jmina-fliba-¬V x = Malvla (s , x) , dx
-      where
-      dx : _ ≡ _
-      dx = begin
-        jmina ≡⟨ {!!} ⟩
-        inj₂ (Malvla $ s , x) ∎
+    module Veritas where
+      jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
+      jmina-fliba-¬V x = Malvla (s , x) , dx
         where
-        open _≡_.≡-Reasoning
+        dx : _ ≡ _
+        dx = begin
+          jmina ≡⟨ {!!} ⟩
+          inj₂ (Malvla $ s , x) ∎
+          where
+          open _≡_.≡-Reasoning
 
   jmina = sgjmina.jmina
 \end{code}
