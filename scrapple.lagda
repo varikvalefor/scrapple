@@ -585,6 +585,10 @@ record ScrappleGame (V : Strong → Set)
   jmina-fliba-¬V w h k d s x = Malvla (s , x) , dx
     where
     dx : _ ≡ _
-    dx = {!!}
+    dx = begin
+      jmina w h k d s ≡⟨ {!!} ⟩
+      inj₂ (Malvla $ s , x) ∎
+      where
+      open _≡_.≡-Reasoning
 \end{code}
 \end{document}
