@@ -122,6 +122,7 @@ open import Data.Vec
   )
 open import Function
   using (
+    _∋_;
     _∘_;
     _$_
   )
@@ -482,7 +483,7 @@ module jmina where
                     (𝕃.take
                       (𝕃.length s)
                       (𝕃.drop (𝔽.toℕ w) $ 𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))))
-         → Set Function.∋ {!!}
+         → Set ∋ {!!}
          → Bode
   jminan = {!!}
 
@@ -551,7 +552,7 @@ record ScrappleGame (V : Strong → Set)
         → Fin nikelci
         → Fin 2
         → Strong
-        → ScrappleGame V V? ⊎ (Set Function.∋ {!!})
+        → ScrappleGame V V? ⊎ (Set ∋ {!!})
   jmina = {!!}
 
   jmina-fliba-¬V : (w : Fin w)
