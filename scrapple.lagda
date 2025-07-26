@@ -100,6 +100,7 @@ open import Level
     _⊔_
   )
 open import Data.Fin
+  as 𝔽
   using (
     Fin
   )
@@ -457,7 +458,7 @@ module jmina where
     nikelci = Bode.nikelci b;
     w = Bode.w b;
     h = Bode.h b;
-    sp = coerce {!!} $ 𝕍.take (Data.Fin.toℕ w) (coerce {!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ Data.Fin.toℕ w) (coerce {!!} $ Bode.sp b)
+    sp = coerce {!!} $ 𝕍.take (𝔽.toℕ w) (coerce {!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ 𝔽.toℕ w) (coerce {!!} $ Bode.sp b)
     }
     where
     coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
@@ -473,14 +474,14 @@ module jmina where
          → (_ : d ≡ Fin.zero
               → (_×_
                   (ℕ._<_
-                    (Data.Fin.toℕ w ℕ.+ 𝕃.length s)
+                    (𝔽.toℕ w ℕ.+ 𝕃.length s)
                     (Bode.w b))
                   (All
                     (??.Is-nothing
                       {A = Char × Fin (Bode.nikelci b)})
                     (𝕃.take
                       (𝕃.length s)
-                      (𝕃.drop (Data.Fin.toℕ w) $ 𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))))
+                      (𝕃.drop (𝔽.toℕ w) $ 𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))))
          → Set Function.∋ {!!}
          → Bode
   jminan = {!!}
