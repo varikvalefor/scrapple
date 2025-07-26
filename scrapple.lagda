@@ -517,7 +517,7 @@ module jmina where
 \end{code}
 
 \section{la'oi .\AgdaRecord{Scrapple}.}
-ni'o ga naja ko'a goi la'oi .\B{x}.\ ctaipe la'oi .\AgdaRecord{Scrapple}.\ gi\ldots
+ni'o ga naja ko'a goi la'oi .\B{x}.\ ctaipe la'o zoi.\ \AgdaRecord{Scrapple} \B{V} .zoi.\ gi\ldots
 
 \begin{itemize}
 	\item ga je ko'a sinxa ko'e goi lo zazyfau pe lo valsi selkei gi
