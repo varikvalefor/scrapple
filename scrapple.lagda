@@ -200,6 +200,10 @@ open import Truthbrary.Data.Strong
   using (
     Strong
   )
+open import Relation.Nullary.Decidable
+  using (
+    dec-no
+  )
 open import Truthbrary.Data.Vec.Matrix
   as 𝕄
   using (
@@ -580,10 +584,6 @@ record ScrappleGame (V : Strong → Set)
       jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
       jmina-fliba-¬V sex = Malvla (s , proj₁ N) , dx
         where
-        open import Relation.Nullary.Decidable
-          using (
-            dec-no
-          )
         N = dec-no _ sex
         dx : _ ≡ _
         dx = begin
