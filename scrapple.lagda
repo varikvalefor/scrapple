@@ -517,7 +517,7 @@ module jmina where
       b₂ : Bode
       b₂ = ??.to-witness J
 
-      wd : Bode.w b ≡ Bode.w (b₂)
+      wd : Bode.w b ≡ Bode.w b₂
       wd = {!!}
 
       hd : Bode.h b ≡ Bode.h (b₂)
