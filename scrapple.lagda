@@ -488,6 +488,8 @@ module jmina where
                     ??.Is-nothing
                     ((𝕃.take (𝕃.length s) ∘ 𝕃.drop (𝔽.toℕ w))
                       (𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))))
+         → (_ : d ≡ Fin.suc Fin.zero
+              → Set ∋ {!!})
          → Set ∋ {!!}
          → Bode
   jminan = {!!}
