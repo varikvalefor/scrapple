@@ -590,7 +590,7 @@ record ScrappleGame (V : Strong → Set)
       jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
       jmina-fliba-¬V sex = Malvla (s , proj₁ N) , dx
         where
-        N = dec-no _ sex
+        N = _⍨ dec-no sex _
         dx : _ ≡ _
         dx = begin
           jmina ≡⟨ refl ⟩
