@@ -513,13 +513,17 @@ module jmina where
                  (d : _)
                  (s : _)
                  (J : ??.Is-just $ jmina b w h k d s) where
-      wd : Bode.w b ≡ Bode.w (??.to-witness J)
+
+      b₂ : Bode
+      b₂ = ??.to-witness J
+
+      wd : Bode.w b ≡ Bode.w (b₂)
       wd = {!!}
 
-      hd : Bode.h b ≡ Bode.h (??.to-witness J)
+      hd : Bode.h b ≡ Bode.h (b₂)
       hd = {!!}
 
-      kd : Bode.nikelci b ≡ Bode.nikelci (??.to-witness J)
+      kd : Bode.nikelci b ≡ Bode.nikelci (b₂)
       kd = {!!}
 
     j⊑ : (b : Bode)
