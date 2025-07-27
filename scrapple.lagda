@@ -578,14 +578,19 @@ record ScrappleGame (V : Strong → Set)
 
     module Veritas where
       jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
-      jmina-fliba-¬V sex = Malvla (s , sex) , dx
+      jmina-fliba-¬V sex = Malvla (s , proj₁ N) , dx
         where
+        open import Relation.Nullary.Decidable
+          using (
+            dec-no
+          )
+        N = dec-no _ sex
         dx : _ ≡ _
         dx = begin
           jmina ≡⟨ refl ⟩
-          f₁ (V? s) ≡⟨ (V? s ≡ no sex ∋ {!!}) ▹ cong f₁ ⟩
-          f₁ (no sex) ≡⟨ refl ⟩
-          inj₂ (Malvla $ s , sex) ∎
+          f₁ (V? s) ≡⟨ (V? s ≡ no (Σ.proj₁ N) ∋ Σ.proj₂ N) ▹ cong f₁ ⟩
+          f₁ (no $ proj₁ N) ≡⟨ refl ⟩
+          inj₂ (Malvla $ s , proj₁ N) ∎
           where
           open _≡_.≡-Reasoning
 
