@@ -588,7 +588,7 @@ record ScrappleGame (V : Strong → Set)
         dx : _ ≡ _
         dx = begin
           jmina ≡⟨ refl ⟩
-          f₁ (V? s) ≡⟨ (V? s ≡ _ ∋ Σ.proj₂ N) ▹ cong f₁ ⟩
+          f₁ (V? s) ≡⟨ (_ ≡ _ ∋ Σ.proj₂ N) ▹ cong f₁ ⟩
           f₁ (no $ proj₁ N) ≡⟨ refl ⟩
           inj₂ (Malvla $ s , proj₁ N) ∎
           where
