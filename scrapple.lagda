@@ -520,7 +520,7 @@ module jmina where
       wd : Bode.w b ≡ Bode.w b₂
       wd = {!!}
 
-      hd : Bode.h b ≡ Bode.h (b₂)
+      hd : Bode.h b ≡ Bode.h b₂
       hd = {!!}
 
       kd : Bode.nikelci b ≡ Bode.nikelci (b₂)
