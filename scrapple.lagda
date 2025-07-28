@@ -588,8 +588,8 @@ record ScrappleGame (V : Strong → Set)
     jmina = f₁ $ V? s
 
     module Veritas where
-      jmina-fliba-¬V : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
-      jmina-fliba-¬V sex = Malvla (s , proj₁ N) , dx
+      ¬V-fliba : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
+      ¬V-fliba sex = Malvla (s , proj₁ N) , dx
         where
         N = _⍨ dec-no sex _
         dx : _ ≡ _
