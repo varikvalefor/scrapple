@@ -575,10 +575,10 @@ record ScrappleGame (V : Strong → Set)
     Malvla : ∃ $ ¬_ ∘ V → Exception
 
   module sgjmina (w : Fin w)
-               (h : Fin h)
-               (k : Fin nikelci)
-               (d : Fin 2)
-               (s : Strong) where
+                 (h : Fin h)
+                 (k : Fin nikelci)
+                 (d : Fin 2)
+                 (s : Strong) where
 
     f₁ : Dec $ V s → _
     f₁ (no N) = inj₂ $ Malvla $ s , N
