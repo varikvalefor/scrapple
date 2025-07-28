@@ -573,6 +573,7 @@ record ScrappleGame (V : Strong → Set)
 
   data Exception : Set where
     Malvla : ∃ $ ¬_ ∘ V → Exception
+    Bradu'e : {!!} → Exception
 
   module sgjmina (w : Fin w)
                  (h : Fin h)
