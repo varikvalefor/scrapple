@@ -434,7 +434,7 @@ module _⊑_ where
     where
     Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
     Is-just? nothing = no $ λ ()
-    Is-just? (just x) = yes $ DMRUA.just ABu.tt
+    Is-just? (just _) = yes $ DMRUA.just ABu.tt
 
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = ∃ $ λ x → All (Mapti b₁ b₂ x) coords
