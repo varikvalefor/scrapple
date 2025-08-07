@@ -467,6 +467,11 @@ module _⊑_ where
   ... | no N = no {!!}
 
   module Veritas where
+    ⇒→→ : ∀ {a b} → (A : Set a) → (B : Set b)
+        → A ⇒ B
+        → A → B
+    ⇒→→ = {!!}
+
     Mapti-nothing : (b₁ b₂ : Bode)
                   → (m : M b₁ b₂)
                   → (i₁ : Fin _)
