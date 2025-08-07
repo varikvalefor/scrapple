@@ -473,7 +473,7 @@ module _⊑_ where
     ⇒→→ (_⊎_.inj₁ x) x₁ = x
     ⇒→→ (inj₂ y) x₁ = ⊥-elim $ y x₁
 
-    →→⇒ : ∀ {a b} → {A : Set a} → (B : Set b)
+    →→⇒ : ∀ {a b} → {A : Set a} → {B : Set b}
         → (A → B)
         → A ⇒ B
     →→⇒ = {!!}
