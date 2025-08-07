@@ -416,6 +416,16 @@ module _⊑_ where
   ... | _ | _ | no Nk = no $ Nk ∘ M.kd
   ... | yes w | yes h | yes k = yes $ record {wd = w; hd = h; kd = k}
 
+  reler : (b₁ b₂ : Bode)
+        → M b₁ b₂
+        → Fin (Bode.w b₁) × Fin (Bode.h b₁)
+        → Maybe Char × Maybe Char
+  reler b₁ b₂ m (i₁ , i₂) = lookup₂ (Bode.sp₁ b₁) i₁ i₂ , lookup₂ (Bode.sp₁ b₂) i₁' i₂'
+    where
+    open M m
+    i₁' = mink i₁ wd
+    i₂' = mink i₂ hd
+
   Mapti : (b₁ b₂ : Bode)
         → M b₁ b₂
         → Fin (Bode.w b₁) × Fin (Bode.h b₁)
