@@ -512,9 +512,7 @@ module jmina where
   Zabna? : Decidable Zabna
   Zabna? = {!!}
 
-  jmina! : (b : Bode)
-         → JRq b
-         → Bode
+  jmina! : (b : Bode) → JRq b → Bode
   jmina! b j = if (d Truthbrary.Record.Eq.≡ᵇ Fin.zero) x₀ x₁
     where
     coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
