@@ -467,11 +467,11 @@ module _⊑_ where
   ... | no N = no {!!}
 
   module Veritas where
-    ⇒→→ : ∀ {a b} → (A : Set a) → (B : Set b)
+    ⇒→→ : ∀ {a b} → {A : Set a} → (B : Set b)
         → A ⇒ B
         → A → B
-    ⇒→→ A B (_⊎_.inj₁ x) x₁ = x
-    ⇒→→ A B (inj₂ y) x₁ = ⊥-elim $ y x₁
+    ⇒→→ B (_⊎_.inj₁ x) x₁ = x
+    ⇒→→ B (inj₂ y) x₁ = ⊥-elim $ y x₁
 
     →→⇒ : ∀ {a b} → (A : Set a) → (B : Set b)
         → (A → B)
