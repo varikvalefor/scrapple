@@ -460,6 +460,15 @@ module _⊑_ where
   ... | yes rov = yes $ M! , rov
   ... | no N = no {!!}
 
+  module Veritas where
+    Mapti-nothing : (b₁ b₂ : Bode)
+                  → (m : M b₁ b₂)
+                  → (i₁ : Fin _)
+                  → (i₂ : Fin _)
+                  → nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂
+                  → Mapti b₁ b₂ m $ i₁ , i₂
+    Mapti-nothing = {!!}
+
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
