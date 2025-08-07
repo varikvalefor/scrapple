@@ -131,6 +131,12 @@ open import Function
     _|>_ to _▹_;
     flip to _⍨
   )
+open import Data.Bool
+  using (
+  )
+  renaming (
+    if_then_else_ to if
+  )
 open import Data.Char
   using (
     Char
@@ -507,21 +513,20 @@ module jmina where
   Zabna? = {!!}
 
   jmina! : (b : Bode)
-         → Fin $ Bode.w b
-         → Fin $ Bode.h b
-         → Fin $ Bode.nikelci b
-         → Fin 2
+         → JRq b
          → Bode
-  jmina! b w h k Fin.zero = record {
-    nikelci = Bode.nikelci b;
-    w = Bode.w b;
-    h = Bode.h b;
-    sp = coerce {!!} $ 𝕍.take (𝔽.toℕ w) (coerce {!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ 𝔽.toℕ w) (coerce {!!} $ Bode.sp b)
-    }
+  jmina! b j = if (d Truthbrary.Record.Eq.≡ᵇ Fin.zero) x₀ x₁
     where
     coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
     coerce refl x = x
-  jmina! b w h k (Fin.suc Fin.zero) = {!!}
+    open JRq  j
+    x₀ = record {
+      nikelci = Bode.nikelci b;
+      w = Bode.w b;
+      h = Bode.h b;
+      sp = coerce {!!} $ 𝕍.take (𝔽.toℕ w) (coerce {!!} $ Bode.sp b) 𝕍.++ {!!} 𝕍.++ 𝕍.drop (ℕ.suc $ 𝔽.toℕ w) (coerce {!!} $ Bode.sp b)
+      }
+    x₁ = {!!}
 
   jminan : (b : Bode)
          → (w : Fin $ Bode.w b)
