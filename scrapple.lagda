@@ -478,6 +478,22 @@ _⊑?_ = _⊑_._⊑?_
 
 \begin{code}
 module jmina where
+  record JRq (b : Bode) : Set where
+    field
+      w : Fin $ Bode.w b
+      h : Fin $ Bode.h b
+      k : Fin $ Bode.nikelci b
+      s : Strong
+      d : Fin 2
+      mapti-cmalu₀ : d ≡ Fin.zero
+                   → (ℕ._<_
+                       (𝔽.toℕ w ℕ.+ 𝕃.length s)
+                       (Bode.w b))
+      mapti-cmalu₁ : d ≡ Fin.suc Fin.zero
+                   → (ℕ._<_
+                       (𝔽.toℕ h ℕ.+ 𝕃.length s)
+                       (Bode.h b))
+
   jmina! : (b : Bode)
          → Fin $ Bode.w b
          → Fin $ Bode.h b
