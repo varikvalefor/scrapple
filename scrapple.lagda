@@ -524,7 +524,7 @@ module jmina where
                      (𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))
 
   Zabna? : {b : Bode} → Decidable $ Zabna {b}
-  Zabna? x with Data.List.Relation.Unary.All.all? _ _
+  Zabna? x with Data.List.Relation.Unary.All.all? {!!} _
   ... | no N = no $ N ∘ Zabna.na-basti
   ... | yes r = yes $ record {na-basti = r}
 
