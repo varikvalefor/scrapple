@@ -224,6 +224,10 @@ open import Data.Maybe.Relation.Unary.Any
   as DMRUA
   using (
   )
+open import Data.Maybe.Relation.Unary.All
+  as DMRU∀
+  using (
+  )
 open import Relation.Binary.PropositionalEquality
   as _≡_
   using (
@@ -527,7 +531,7 @@ module jmina where
   Zabna? x with Data.List.Relation.Unary.All.all? Is-nothing? _
     where
     Is-nothing? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-nothing {A = A}
-    Is-nothing? nothing = {!!}
+    Is-nothing? nothing = yes DMRU∀.nothing
     Is-nothing? (just x) = {!!}
   ... | no N = no $ N ∘ Zabna.na-basti
   ... | yes r = yes $ record {na-basti = r}
