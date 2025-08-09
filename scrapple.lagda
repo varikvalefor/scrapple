@@ -444,7 +444,7 @@ module _⊑_ where
         → M b₁ b₂
         → Fin (Bode.w b₁) × Fin (Bode.h b₁)
         → Set
-  Mapti b₁ b₂ m (i₁ , i₂) = (_⇒ Dunli) J
+  Mapti b₁ b₂ m (i₁ , i₂) = J ⇒ Dunli
     where
     open M m
     J = ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
