@@ -527,7 +527,8 @@ module jmina where
   Zabna? x with Data.List.Relation.Unary.All.all? Is-nothing? _
     where
     Is-nothing? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-nothing {A = A}
-    Is-nothing? = {!!}
+    Is-nothing? nothing = {!!}
+    Is-nothing? (just x) = {!!}
   ... | no N = no $ N ∘ Zabna.na-basti
   ... | yes r = yes $ record {na-basti = r}
 
