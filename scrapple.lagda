@@ -532,7 +532,7 @@ module jmina where
     where
     Is-nothing? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-nothing {A = A}
     Is-nothing? nothing = yes DMRU∀.nothing
-    Is-nothing? (just x) = {!!}
+    Is-nothing? (just x) = no {!!}
   ... | no N = no $ N ∘ Zabna.na-basti
   ... | yes r = yes $ record {na-basti = r}
 
