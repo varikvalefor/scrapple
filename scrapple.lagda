@@ -523,7 +523,7 @@ module jmina where
   Zabna? : Decidable Zabna
   Zabna? x with Data.List.Relation.Unary.All.all? _ _
   ... | no N = no $ N ∘ Zabna.na-basti
-  ... | yes r = {!!}
+  ... | yes r = yes $ record {na-basti = r}
 
   jmina! : (b : Bode) → JRq b → Bode
   jmina! b j = if (d Truthbrary.Record.Eq.≡ᵇ Fin.zero) x₀ x₁
