@@ -523,7 +523,7 @@ module jmina where
                    ((𝕃.take (𝕃.length s) ∘ 𝕃.drop (𝔽.toℕ w))
                      (𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))
 
-  Zabna? : Decidable Zabna
+  Zabna? : {b : Bode} → Decidable $ Zabna {b}
   Zabna? x with Data.List.Relation.Unary.All.all? _ _
   ... | no N = no $ N ∘ Zabna.na-basti
   ... | yes r = yes $ record {na-basti = r}
