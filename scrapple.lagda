@@ -346,6 +346,10 @@ module cumvla where
                 (𝕃.map (𝕃.map just) $ words xs)))
       xrt = {!!}
 
+      >0 : (xs : List $ Maybe Char)
+         → All (λ e → 𝕃.length e ℕ.> 0) $ words xs
+      >0 = {!!}
+
   words = words.words
 
   →++↓ : {m n : ℕ} → 𝕄 (Maybe Char) m n → List $ List $ Maybe Char
