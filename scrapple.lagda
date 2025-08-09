@@ -522,7 +522,7 @@ module jmina where
 
   Zabna? : Decidable Zabna
   Zabna? x with Data.List.Relation.Unary.All.all? _ _
-  ... | no N = {!!}
+  ... | no N = no {!!}
   ... | yes r = {!!}
 
   jmina! : (b : Bode) → JRq b → Bode
