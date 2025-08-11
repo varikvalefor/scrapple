@@ -511,6 +511,15 @@ module _⊑_ where
                → Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂
                → Mapti b₁ b₂ m $ i₁ , i₂
     Mapti-just = {!!}
+
+    ¬Mapti : (b₁ b₂ : Bode)
+           → (m : M b₁ b₂)
+           → (i₁ : Fin _)
+           → (i₂ : Fin _)
+           → ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
+           → ¬_ $ Σ.uncurry _≡_ $ reler _ _  m $ i₁ , i₂
+           → ¬_ $ Mapti b₁ b₂ m $ i₁ , i₂
+    ¬Mapti = {!!}
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
