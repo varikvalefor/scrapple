@@ -537,7 +537,8 @@ module _⊑_ where
            → {x : Maybe A}
            → ¬ ??.Is-just x
            → nothing ≡ x
-      ¬J⇒N = {!!}
+      ¬J⇒N {x = nothing} = {!!}
+      ¬J⇒N {x = just x} = {!!}
     ... | yes j = {!!}
 
 _⊑_ = _⊑_._⊑_
