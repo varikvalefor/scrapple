@@ -530,7 +530,9 @@ module _⊑_ where
             (_⊎_
               (nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂)
               (Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂)))
-    xor = {!!}
+    xor b₁ b₂ m i₁ i₂ with Dec (??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂) ∋ {!!}
+    ... | no N = {!!}
+    ... | yes j = {!!}
 
 _⊑_ = _⊑_._⊑_
 
