@@ -520,6 +520,18 @@ module _⊑_ where
            → ¬_ $ Σ.uncurry _≡_ $ reler _ _  m $ i₁ , i₂
            → ¬_ $ Mapti b₁ b₂ m $ i₁ , i₂
     ¬Mapti = {!!}
+
+    xor : (b₁ b₂ : Bode)
+        → (m : M b₁ b₂)
+        → (i₁ : Fin _)
+        → (i₂ : Fin _)
+        → (_⊎_
+            (¬_ $ Σ.uncurry _≡_ $ reler _ _  m $ i₁ , i₂)
+            (_⊎_
+              (nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂)
+              (Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂)))
+    xor = {!!}
+
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
