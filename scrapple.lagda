@@ -538,7 +538,7 @@ module _⊑_ where
            → ¬ ??.Is-just x
            → nothing ≡ x
       ¬J⇒N {x = nothing} = λ _ → refl
-      ¬J⇒N {x = just x} = {!!}
+      ¬J⇒N {x = just x} = ⊥-elim ∘ (_$ {!!})
     ... | yes j = {!!}
 
 _⊑_ = _⊑_._⊑_
