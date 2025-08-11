@@ -519,7 +519,7 @@ module _⊑_ where
            → ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
            → ¬_ $ Σ.uncurry _≡_ $ reler _ _  m $ i₁ , i₂
            → ¬_ $ Mapti b₁ b₂ m $ i₁ , i₂
-    ¬Mapti = {!!}
+    ¬Mapti = λ b₁ b₂ m i₁ i₂ J N Mx → ⊥-elim $ N {!!}
 
     xor : (b₁ b₂ : Bode)
         → (m : M b₁ b₂)
