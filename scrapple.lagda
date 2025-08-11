@@ -525,12 +525,13 @@ module _⊑_ where
         → (m : M b₁ b₂)
         → (i₁ : Fin _)
         → (i₂ : Fin _)
+        → Mapti b₁ b₂ m $ i₁ , i₂
         → (_⊎_
             (¬_ $ Σ.uncurry _≡_ $ reler _ _  m $ i₁ , i₂)
             (_⊎_
               (nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂)
               (Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂)))
-    xor b₁ b₂ m i₁ i₂ with Dec (??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂) ∋ {!!}
+    xor b₁ b₂ m i₁ i₂ Mx with Dec (??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂) ∋ {!!}
     ... | no N = inj₂ $ _⊎_.inj₁ $ ¬J⇒N N
       where
       ¬J⇒N : ∀ {a} → {A : Set a}
