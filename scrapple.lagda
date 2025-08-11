@@ -503,6 +503,14 @@ module _⊑_ where
            → ¬ ??.Is-just x
       N⇒¬J nothing refl ()
 
+    Mapti-just : (b₁ b₂ : Bode)
+               → (m : M b₁ b₂)
+               → (i₁ : Fin _)
+               → (i₂ : Fin _)
+               → (c : Char)
+               → Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂
+               → Mapti b₁ b₂ m $ i₁ , i₂
+    Mapti-just = {!!}
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
