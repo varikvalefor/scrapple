@@ -709,11 +709,14 @@ record ScrappleGame (V : Strong → Set)
                  (d : Fin 2)
                  (s : Strong) where
 
+    Cnino : Set
+    Cnino = ScrappleGame V V? ⊎ Exception scrapple
+
     f₁ : Dec $ V s → _
     f₁ (no N) = inj₂ $ Malvla $ s , N
     f₁ (yes v) = {!!}
 
-    jmina : ScrappleGame V V? ⊎ (Set ∋ Exception scrapple)
+    jmina : Cnino
     jmina = f₁ $ V? s
 
     module Veritas where
