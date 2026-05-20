@@ -321,18 +321,6 @@ module cumvla where
       vin→S 𝕃.[] _ N _ = ⊥-elim $ N refl
       vin→S = {!!}
 
-      romidjus : (v : Strong)
-               → (l : List $ Maybe Char)
-               → (c : vin v l)
-               → (_⊎_
-                   (vin.isP c)
-                   (vin.isR c))
-               → (Σ
-                   (vin v l)
-                   (λ c₂ →
-                     (vin.isM c₂)))
-      romidjus = {!!}
-
       kunti :  ∀ {a} → {A : Set a}
             → words {A = A} 𝕃.[] ≡ 𝕃.[]
       kunti = refl
