@@ -685,6 +685,12 @@ record Scrapple (Valsi : Strong → Set) : Set
     roval : All Valsi $ cumvla bode
 \end{code}
 
+\begin{code}
+data Exception {V : Strong → Set} (S : Scrapple V) : Set where
+  Malvla : ∃ $ ¬_ ∘ V → Exception S
+  Bradu'e : {!!} → Exception S
+\end{code}
+
 \section{la'oi .\AgdaRecord{ScrappleGame}.}
 
 \begin{code}
@@ -697,10 +703,6 @@ record ScrappleGame (V : Strong → Set)
   open Scrapple scrapple
   open Bode (Scrapple.bode scrapple)
 
-  data Exception : Set where
-    Malvla : ∃ $ ¬_ ∘ V → Exception
-    Bradu'e : {!!} → Exception
-
   module sgjmina (w : Fin w)
                  (h : Fin h)
                  (k : Fin nikelci)
@@ -711,7 +713,7 @@ record ScrappleGame (V : Strong → Set)
     f₁ (no N) = inj₂ $ Malvla $ s , N
     f₁ (yes v) = {!!}
 
-    jmina : ScrappleGame V V? ⊎ (Set ∋ Exception)
+    jmina : ScrappleGame V V? ⊎ (Set ∋ Exception scrapple)
     jmina = f₁ $ V? s
 
     module Veritas where
