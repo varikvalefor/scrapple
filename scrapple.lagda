@@ -238,6 +238,16 @@ open import Relation.Binary.PropositionalEquality
   )
 \end{code}
 
+\section{ko'a goi la'oi .\AgdaRecord{Bode}.}
+ni'o sa'u ko'a se ctaipe lo valsi selkei me'oi .board.\sds  .i sa'u nai ru'e ro da poi ke'a ctaipe ko'a zo'u ga je da sinxa ko'e goi lo valsi selkei me'oi .board.\ no'u lo selkei fasnu gi ga je\ldots
+
+\begin{itemize}
+	\item lo mu'oi zoi.\ \AgdaField{Bode.nikelci}\ .zoi.\ be da cu nilzilcmi lo'i ro kelci be ko'e gi ga je
+	\item lo mu'oi zoi.\ \AgdaField{Bode.w}\ .zoi.\ be da cu ni zo'e pe da cu ganro gi ga je
+	\item lo mu'oi zoi.\ \AgdaField{Bode.h}\ .zoi.\ be da cu ni zo'e pe da cu clani gi
+	\item ro de poi ke'a se vasru pe'a lo mu'oi zoi.\ \AgdaField{Bode.sp}\ .zoi.\ be da zo'u ga jonai de du la'oi .\IC{nothing}.\ je cu sinxa lo na se pilno gi su'o di zo'u de me'oi .\IC{just}.\ di je cu sinxa lo se pilno be lo kelci poi namcu cmene ke'a fa lo mu'oi zoi.\ \AgdaField{Σ.proj₂}\ .zoi.\ be ke'a
+\end{itemize}
+
 \begin{code}
 record Bode : Set
   where
