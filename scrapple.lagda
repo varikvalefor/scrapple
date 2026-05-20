@@ -276,22 +276,42 @@ module cumvla where
     words = 𝕃.filter ((0 ℕ.<?_) ∘ 𝕃.length) ∘ sid 𝕃.[] 𝕃.[]
 
     module Veritas where
-      vin : Strong → List $ Maybe Char → Set
-      vin s xs = M 𝕃.take ⊎ Midju ⊎ M 𝕃.drop
-        where
-        M = λ f → ∃ $ λ n → 𝕃.map just s ≡ f n xs
-        Midju = Σ (_ × _) $ (k ≡_) ∘ Σ.uncurry (midju xs)
+      module vin where
+        data vin (s : Strong) (xs : List $ Maybe Char) : Set
           where
-          k = nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ]
-          midju = λ xs n₁ n₂ → 𝕃.take n₂ $ 𝕃.drop n₁ xs
+          p : 𝕃.map just s ≡ 𝕃.take (𝕃.length s) xs → _
+          m : (∃
+                    (λ n →
+                      (_≡_
+                        (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
+                        (𝕃.take
+                          (ℕ.suc $ 𝕃.length s)
+                          (𝕃.drop n xs)))))
+               → _
+          r : 𝕃.map just s ≡ 𝕃.drop (𝕃.length xs ℕ.∸ 𝕃.length s) xs
+               → _
+
+        isP : {s : _} → {xs : _} → vin s xs → Set
+        isP (p _) = ABu.⊤
+        isP _ = Data.Empty.⊥
+
+        isM : {s : _} → {xs : _} → vin s xs → Set
+        isM (m _) = ABu.⊤
+        isM _ = Data.Empty.⊥
+
+        isR : {s : _} → {xs : _} → vin s xs → Set
+        isR (r _) = ABu.⊤
+        isR _ = Data.Empty.⊥
+
+      vin = vin.vin
 
       >→¬vin : (v : Strong)
              → (l : List $ Maybe Char)
              → 𝕃.length v ℕ.> 𝕃.length l
              → ¬_ $ vin v l
-      >→¬vin v l z (_⊎_.inj₁ c) = {!!}
-      >→¬vin v l z (inj₂ (_⊎_.inj₁ c)) = {!!}
-      >→¬vin v l z (inj₂ (inj₂ c)) = {!!}
+      >→¬vin s l x (vin.p d) = {!!}
+      >→¬vin s l x (vin.m v) = {!!}
+      >→¬vin s l x (vin.r d) = {!!}
 
       vin→S : (v : Strong)
             → (l : List $ Maybe Char)
@@ -305,12 +325,12 @@ module cumvla where
                → (l : List $ Maybe Char)
                → (c : vin v l)
                → (_⊎_
-                   (∃ $ λ x → c ≡ _⊎_.inj₁ x)
-                   (∃ $ λ x → c ≡ inj₂ (inj₂ x)))
+                   (vin.isP c)
+                   (vin.isR c))
                → (Σ
                    (vin v l)
                    (λ c₂ →
-                     (∃ $ λ x → c₂ ≡ inj₂ (_⊎_.inj₁ x))))
+                     (vin.isM c₂)))
       romidjus = {!!}
 
       kunti :  ∀ {a} → {A : Set a}
@@ -322,13 +342,7 @@ module cumvla where
          → ¬_ $ s ≡ 𝕃.[]
          → vin s xs
          → ∃ $ (s ≡_) ∘ 𝕃.lookup (words xs)
-      ∈w xs s z (_⊎_.inj₁ v) = coerce d Fin.zero , {!!}
-        where
-        d = vin→S s xs z (_⊎_.inj₁ v) ▹ Σ.proj₂ ▹ sym ▹ cong Fin
-        coerce : ∀ {a} → {A B : Set a} → A ≡ B → A → B
-        coerce refl x = x
-      ∈w xs s z (inj₂ (_⊎_.inj₁ v)) = {!!}
-      ∈w xs s z (inj₂ (inj₂ v)) = {!!}
+      ∈w xs = {!!}
 
       w∈ : (xs : List $ Maybe Char)
          → (s : Strong)
