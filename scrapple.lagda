@@ -712,7 +712,7 @@ record ScrappleGame (V : Strong → Set)
     Cnino : Set
     Cnino = ScrappleGame V V? ⊎ Exception scrapple
 
-    f₁ : Dec $ V s → _
+    f₁ : Dec $ V s → Cnino
     f₁ (no N) = inj₂ $ Malvla $ s , N
     f₁ (yes v) = {!!}
 
