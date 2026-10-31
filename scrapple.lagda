@@ -707,7 +707,7 @@ data Exception {V : Strong → Set} (S : Scrapple V) : Set where
 \section{la'oi .\AgdaRecord{ScrappleGame}.}
 
 \begin{code}
-record ScrappleGame (V : Strong → Set)
+record ScrappleGame {V : Strong → Set}
                     (V? : Decidable V) : Set
   where
   field
@@ -723,7 +723,7 @@ record ScrappleGame (V : Strong → Set)
                  (s : Strong) where
 
     Cnino : Set
-    Cnino = ScrappleGame V V? ⊎ Exception scrapple
+    Cnino = ScrappleGame V? ⊎ Exception scrapple
 
     f₁ : Dec $ V s → Cnino
     f₁ (no N) = inj₂ $ Malvla $ s , N
