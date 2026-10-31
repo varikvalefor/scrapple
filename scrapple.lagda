@@ -300,12 +300,12 @@ module cumvla where
           where
           p : 𝕃.map just s ≡ 𝕃.take (𝕃.length s) xs → _
           m : (∃
-                    (λ n →
-                      (_≡_
-                        (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
-                        (𝕃.take
-                          (ℕ.suc $ 𝕃.length s)
-                          (𝕃.drop n xs)))))
+                (λ n →
+                  (_≡_
+                    (nothing 𝕃.∷ 𝕃.map just s 𝕃.++ 𝕃.[ nothing ])
+                    (𝕃.take
+                      (ℕ.suc $ 𝕃.length s)
+                      (𝕃.drop n xs)))))
                → _
           r : 𝕃.map just s ≡ 𝕃.drop (𝕃.length xs ℕ.∸ 𝕃.length s) xs
                → _
