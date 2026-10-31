@@ -217,6 +217,7 @@ open import Truthbrary.Data.Vec.Matrix
     𝕄
   )
 open import Data.List.Relation.Unary.All
+  as 𝕃∀
   using (
     All
   )
@@ -489,7 +490,7 @@ module _⊑_ where
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
   ... | no N = no $ N ∘ Σ.proj₁
-  ... | yes M! with Data.List.Relation.Unary.All.all? Mapti?' _
+  ... | yes M! with 𝕃∀.all? Mapti?' _
     where
     Mapti?' = Mapti? b c M!
   ... | yes rov = yes $ M! , rov
@@ -599,7 +600,7 @@ module jmina where
                      (𝕍.toList $ 𝕍.lookup (Bode.sp b) h)))
 
   Zabna? : {b : Bode} → Decidable $ Zabna {b}
-  Zabna? x with Data.List.Relation.Unary.All.all? Is-nothing? _
+  Zabna? x with 𝕃∀.all? Is-nothing? _
     where
     Is-nothing? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-nothing {A = A}
     Is-nothing? nothing = yes DMRU∀.nothing
