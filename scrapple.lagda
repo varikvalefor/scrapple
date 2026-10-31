@@ -701,7 +701,7 @@ record Scrapple (Valsi : Strong → Set) : Set
 \begin{code}
 data Exception {V : Strong → Set} (S : Scrapple V) : Set where
   Malvla : ∃ $ ¬_ ∘ V → Exception S
-  Bradu'e : Σ Strong {!!} → Exception S
+  Bradu'e : (s : Strong) → {!!} → Exception S
 \end{code}
 
 \section{la'oi .\AgdaRecord{ScrappleGame}.}
