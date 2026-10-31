@@ -421,7 +421,7 @@ module _⊑_ where
        → Dec $ A ⇒ B
   _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
   _⇒?_ _ _ {yes cₐ} {no N} = no $ ⊥-elim ∘ _⊎_.[ N , _$ cₐ ]
-  _⇒?_ _ _ {no Nₐ} {_} = yes $ inj₂ Nₐ
+  _⇒?_ _ _ {no Nₐ} = yes $ inj₂ Nₐ
 
   coords : {n₁ n₂ : ℕ} → List $ Fin n₁ × Fin n₂
   coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
