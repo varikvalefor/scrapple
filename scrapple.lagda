@@ -550,7 +550,7 @@ module _⊑_ where
             (_⊎_
               (nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂)
               (Σ.uncurry _≡_ $ reler _ _ m $ i₁ , i₂)))
-    xor b₁ b₂ m i₁ i₂ Mx with T ∋ {!!}
+    xor b₁ b₂ m i₁ i₂ Mx with T ∋ Is-just? _
       where
       T = Dec $ ??.Is-just $ lookup₂ (Bode.sp₁ b₁) i₁ i₂
     ... | no N = inj₂ $ _⊎_.inj₁ $ ¬J⇒N N
