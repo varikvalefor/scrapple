@@ -733,7 +733,11 @@ record ScrappleGame {V : Strong → Set}
     jmina = f₁ $ V? s
 
     module Veritas where
-      ¬V-fliba : ¬ V s → ∃ $ _≡_ jmina ∘ inj₂
+      private
+        Bogus : Set
+        Bogus = ∃ $ _≡_ jmina ∘ inj₂
+
+      ¬V-fliba : ¬ V s → Bogus
       ¬V-fliba sex = Malvla (s , proj₁ N) , dx
         where
         N = _⍨ dec-no sex _
