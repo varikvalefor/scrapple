@@ -410,6 +410,7 @@ cumvla = cumvla.cumvla
 \end{code}
 
 \section{le me'oi .iteration.\ se ctaipe}
+ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi zoi.\ \F{\AgdaUnderscore{}⊑\AgdaUnderscore}\ .zoi.\ be da bei de gi ro di poi me da je de se zvati namcu pe'a zo'u lo di moi pe'a be da cu me'oi .\IC{nothing}.\ jonai cu di moi pe'a de
 
 \begin{code}
 module _⊑_ where
@@ -480,10 +481,6 @@ module _⊑_ where
     Is-just? nothing = no $ λ ()
     Is-just? (just _) = yes $ DMRUA.just ABu.tt
 
-  -- | ni'o ro da zo'u ro de zo'u ga jo ctaipe lo mu'oi
-  -- zoi. _⊑_ .zoi. be da bei de gi ro di poi me da je de
-  -- se zvati namcu pe'a zo'u lo di moi pe'a be da cu
-  -- me'oi .nothing. jonai cu di moi pe'a de
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = ∃ $ λ x → All (Mapti b₁ b₂ x) coords
 
