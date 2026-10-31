@@ -490,9 +490,7 @@ module _⊑_ where
   _⊑?_ : Decidable₂ _⊑_
   _⊑?_ b c with M? b c
   ... | no N = no $ N ∘ Σ.proj₁
-  ... | yes M! with 𝕃∀.all? Mapti?' _
-    where
-    Mapti?' = Mapti? b c M!
+  ... | yes M! with 𝕃∀.all? (Mapti? b c M!) _
   ... | yes rov = yes $ M! , rov
   ... | no N = no $ λ x → ⊥-elim $ (_$ Σ.proj₂ x) $ _≡_.subst (¬_ ∘ M') {!!} N
     where
