@@ -488,7 +488,11 @@ module _⊑_ where
   ... | no N = no $ λ x → ⊥-elim $ (_$ Σ.proj₂ x) $ _≡_.subst (¬_ ∘ M') {!!} N
     where
     M' = λ x → All (Mapti b c x) coords
+\end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
   module Veritas where
     ⇒→→ : ∀ {a b} → {A : Set a} → {B : Set b}
         → A ⇒ B
@@ -548,7 +552,11 @@ module _⊑_ where
       ¬J⇒N {x = nothing} = λ _ → refl
       ¬J⇒N {x = just _} = ⊥-elim ∘ (_$ DMRUA.just ABu.tt)
     ... | yes j = {!!}
+\end{code}
 
+\subsection{le cmavlaka'i co'e}
+
+\begin{code}
 _⊑_ = _⊑_._⊑_
 
 _⊑?_ = _⊑_._⊑?_
