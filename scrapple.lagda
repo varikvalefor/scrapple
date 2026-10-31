@@ -373,7 +373,11 @@ module cumvla where
 
   cumvla : Bode → List Strong
   cumvla = 𝕃.concat ∘ 𝕃.map words ∘ →++↓ ∘ Bode.sp₁
+\end{code}
 
+\subsection{le ctaipe be le su'u mapti}
+
+\begin{code}
   module Veritas where
     ropas : (b : Bode)
           → (s : Strong)
@@ -396,7 +400,11 @@ module cumvla where
                    (∃ $ words.Veritas.vin s ∘ 𝕍.toList ∘ 𝕍.lookup (Bode.sp₁ b))
                    (∃ $ words.Veritas.vin s ∘ 𝕍.toList ∘ 𝕍.lookup (𝕍.transpose $ Bode.sp₁ b)))
     cumvla→vin = {!!}
+\end{code}
 
+\subsection{le cmavlaka'i co'e}
+
+\begin{code}
 cumvla = cumvla.cumvla
 \end{code}
 
