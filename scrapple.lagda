@@ -493,7 +493,7 @@ module _⊑_ where
     ⇒→→ : ∀ {a b} → {A : Set a} → {B : Set b}
         → A ⇒ B
         → A → B
-    ⇒→→ (_⊎_.inj₁ x) x₁ = x
+    ⇒→→ (_⊎_.inj₁ x) _ = x
     ⇒→→ (inj₂ y) = ⊥-elim ∘ y
 
     Mapti-nothing : (b₁ b₂ : Bode)
