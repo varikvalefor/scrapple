@@ -485,7 +485,7 @@ module _⊑_ where
     where
     Mapti?' = Mapti? b c M!
   ... | yes rov = yes $ M! , rov
-  ... | no N = no $ λ x → ⊥-elim $ (_$ Σ.proj₂ x) $ _≡_.subst (λ x → ¬ M' x) {!!} N
+  ... | no N = no $ λ x → ⊥-elim $ (_$ Σ.proj₂ x) $ _≡_.subst (¬_ ∘ M') {!!} N
     where
     M' = λ x → All (Mapti b c x) coords
 
