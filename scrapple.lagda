@@ -413,7 +413,7 @@ module _⊑_ where
   lookup₂ = λ x f₁ f₂ → 𝕍.lookup (𝕍.lookup x f₂) f₁
 
   _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
-  _⇒_ X Z = Z ⊎ (¬ X)
+  _⇒_ X Z = Z ⊎ ¬_ X
 
   _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
        → {A? : Dec A}
