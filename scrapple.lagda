@@ -502,7 +502,7 @@ module _⊑_ where
                   → (i₂ : Fin _)
                   → nothing ≡ lookup₂ (Bode.sp₁ b₁) i₁ i₂
                   → Mapti b₁ b₂ m $ i₁ , i₂
-    Mapti-nothing = λ b₁ b₂ m i₁ i₂ x → inj₂ $ N⇒¬J _ x
+    Mapti-nothing = λ _ _ _ _ _ x → inj₂ $ N⇒¬J _ x
       where
       N⇒¬J : ∀ {a} → {A : Set a}
            → (x : Maybe A)
