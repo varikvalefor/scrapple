@@ -494,7 +494,7 @@ module _⊑_ where
         → A ⇒ B
         → A → B
     ⇒→→ (_⊎_.inj₁ x) x₁ = x
-    ⇒→→ (inj₂ y) x₁ = ⊥-elim $ y x₁
+    ⇒→→ (inj₂ y) = ⊥-elim ∘ y
 
     Mapti-nothing : (b₁ b₂ : Bode)
                   → (m : M b₁ b₂)
