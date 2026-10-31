@@ -239,6 +239,14 @@ open import Relation.Binary.PropositionalEquality
   )
 \end{code}
 
+\section{le vrici je fancu}
+
+\begin{code}
+Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
+Is-just? nothing = no $ λ ()
+Is-just? (just _) = yes $ DMRUA.just ABu.tt
+\end{code}
+
 \section{ko'a goi la'oi .\AgdaRecord{Bode}.}
 ni'o sa'u ko'a se ctaipe lo valsi selkei me'oi .board.\sds  .i sa'u nai ru'e ro da poi ke'a ctaipe ko'a zo'u ga je da sinxa ko'e goi lo valsi selkei me'oi .board.\ no'u lo selkei fasnu gi ga je\ldots
 
@@ -476,10 +484,6 @@ module _⊑_ where
          → (m : M b₁ b₂)
          → Decidable $ Mapti b₁ b₂ m
   Mapti? _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
-    where
-    Is-just? : ∀ {a} → {A : Set a} → Decidable $ ??.Is-just {A = A}
-    Is-just? nothing = no $ λ ()
-    Is-just? (just _) = yes $ DMRUA.just ABu.tt
 
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = ∃ $ λ x → All (Mapti b₁ b₂ x) coords
