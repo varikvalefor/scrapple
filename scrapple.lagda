@@ -433,13 +433,13 @@ module _⊑_ where
   _⇒_ : ∀ {a b} → Set a → Set b → Set (a ⊔ b)
   _⇒_ X Z = Z ⊎ ¬_ X
 
-  _⇒?_ : ∀ {a b} → (A : Set a) → (B : Set b)
+  _⇒?_ : ∀ {a b} → {A : Set a} → {B : Set b}
        → {A? : Dec A}
        → {B? : Dec B}
        → Dec $ A ⇒ B
-  _⇒?_ _ _ {B? = yes b} = yes $ _⊎_.inj₁ b
-  _⇒?_ _ _ {no Nₐ} = yes $ inj₂ Nₐ
-  _⇒?_ _ _ {yes cₐ} {no N} = no $ ⊥-elim ∘ _⊎_.[ N , _$ cₐ ]
+  _⇒?_ {B? = yes b} = yes $ _⊎_.inj₁ b
+  _⇒?_ {A? = no Nₐ} = yes $ inj₂ Nₐ
+  _⇒?_ {A? = yes cₐ} {no N} = no $ ⊥-elim ∘ _⊎_.[ N , _$ cₐ ]
 
   coords : {n₁ n₂ : ℕ} → List $ Fin n₁ × Fin n₂
   coords = 𝕃.cartesianProduct (𝕃.allFin _) $ 𝕃.allFin _
@@ -483,7 +483,7 @@ module _⊑_ where
   Mapti? : (b₁ b₂ : Bode)
          → (m : M b₁ b₂)
          → Decidable $ Mapti b₁ b₂ m
-  Mapti? _ _ _ _ = _⇒?_ _ _ {Is-just? _} {_ ≟ _}
+  Mapti? _ _ _ _ = _⇒?_ {A? = Is-just? _} {_ ≟ _}
 
   _⊑_ : Bode → Bode → Set
   _⊑_ b₁ b₂ = ∃ $ λ x → All (Mapti b₁ b₂ x) coords
