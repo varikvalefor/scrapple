@@ -308,7 +308,7 @@ module cumvla where
                       (𝕃.drop n xs)))))
             → _
           r : 𝕃.map just s ≡ 𝕃.drop (𝕃.length xs ℕ.∸ 𝕃.length s) xs
-               → _
+            → _
 
         isP : {s : _} → {xs : _} → vin s xs → Set
         isP (p _) = ABu.⊤
