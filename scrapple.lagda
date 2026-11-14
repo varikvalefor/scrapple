@@ -306,7 +306,7 @@ module cumvla where
                     (𝕃.take
                       (ℕ.suc $ 𝕃.length s)
                       (𝕃.drop n xs)))))
-               → _
+            → _
           r : 𝕃.map just s ≡ 𝕃.drop (𝕃.length xs ℕ.∸ 𝕃.length s) xs
                → _
 
